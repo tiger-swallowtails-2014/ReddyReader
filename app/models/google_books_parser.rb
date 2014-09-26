@@ -5,6 +5,8 @@ require 'json'
 class GoogleBooksParser
   def self.get_books(search_term)
     json_response = HTTParty.get(build_search_url(search_term))
+    return [] unless json_response.parsed_response["items"]
+
     json_response.parsed_response["items"].map do |item|
       parseBookFromJSON(item["volumeInfo"])
     end
