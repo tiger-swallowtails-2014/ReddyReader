@@ -1,6 +1,6 @@
 class WpmCalculator
   def self.calc_wpm(word_count, time_in_seconds)
-    return (word_count * 60) / time_in_seconds
+    return ((word_count * 60) / time_in_seconds).to_i
   end
 
   def self.time_per_page(time_in_seconds, word_count)
