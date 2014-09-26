@@ -15,7 +15,6 @@ $(document).ready(function(){
 				//TODO: render WPM based on algorithm in controller
 				$('#resultsarea').show();
 				$('#resultsarea').append("<p>Your time was: " + result + " seconds </p>");
-				
 			})
 
 		});
