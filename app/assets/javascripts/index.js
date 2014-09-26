@@ -17,5 +17,10 @@ var bookSearch = function(){
 }
 
 var displayResults = function(server_data){
-  console.log(server_data)
+  var $results = $('#results')
+  $results.empty()
+  server_data = server_data.splice(0,4);
+  for (var i=0; i<server_data.length; i++){
+    $results.append(Mustache.render(bookTemplate, server_data[i]))
+  }
 }
