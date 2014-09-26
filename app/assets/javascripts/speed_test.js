@@ -34,5 +34,3 @@ var timeElapsed = function(event, start){
 	var diff = event.timeStamp - start;
 	return diff;
 }
-
-
