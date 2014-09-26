@@ -7,11 +7,12 @@ $(document).ready(function(){
 		$('#done').show();
 		$('#done').click(function(event){
 			var time = timeElapsed(event, start);
+			var word_count = $('#testparagraph').html().split(" ").length;
 			$('#testarea').slideUp("slow");
 			$.ajax({
 				url: '/speed_test_result',
 				method: "post",
-				data: {"time": time}
+				data: {"time": time, "word_count": word_count}
 			}).done(function(result){
 				//TODO: render WPM based on algorithm in controller
 				$('#resultsarea').show();

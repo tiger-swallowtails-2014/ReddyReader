@@ -17,17 +17,12 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test_result
-  	#TODO: WPM calculation
-  	time = params[:time].to_f
-    #page_count = params[:page_count].to_i
-    page_count = 483
-  	words = 134.0
-    @time = time/1000 #in seconds
-    @WPM =  ((words * 60)/@time).to_i
-    time_per_page = time * (250.0/words)  #in seconds
-    time_per_book = (time_per_page * page_count)/60.0 #in minutes
-
-    @result = (time_per_book/60.0)/60
+  	time = params[:time].to_f/1000 #in seconds
+  	word_count = params[:word_count].to_i
+    page_count = session[:page_count].to_i
+    @WPM = WpmCalculator.calc_wpm(word_count, time)
+    time_per_page = WpmCalculator.time_per_page(time, word_count)
+    @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
   	respond_to do |format|
   		format.json {render json: {wpm: @WPM, result: @result}}
