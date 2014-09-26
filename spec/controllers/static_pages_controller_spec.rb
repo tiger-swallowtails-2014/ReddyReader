@@ -9,14 +9,16 @@ describe StaticPagesController do
   end
 
   context "#search_results" do
-
+    it "renders the search results page"
   end
 
   context "#speed_test" do
-
+    it "renders the speed test page"
   end
 
-  context "#speed_results" do
-
+  context "#speed_test_result" do
+    it "renders the search test results page"
+    it "calculates my WPM"
+    it "calculates the time it will take to read my selected book"
   end
 end
