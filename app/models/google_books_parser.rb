@@ -16,7 +16,7 @@ class GoogleBooksParser
       book_data[:author] = (item_json["authors"] || []).join(", ")
       book_data[:title] =  item_json["title"]
       book_data[:page_count] = item_json["pageCount"]
-      book_data[:image_url] = item_json["imageLinks"]["thumbnail"]
+      book_data[:image_url] = item_json["imageLinks"]["thumbnail"] if item_json["imageLinks"]
 
       Book.new(book_data)
     end
