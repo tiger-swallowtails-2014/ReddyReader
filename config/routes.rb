@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
+
+  post 'search_results' => 'static_pages#test'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
