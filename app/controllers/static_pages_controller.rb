@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
+    session.clear # To be modified when converted to one page app
   end
   
   def search_results
@@ -8,6 +9,11 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test
+    session[:image_url] = params[:image_url]
+    session[:title] = params[:title]
+    session[:author] = params[:author]
+    session[:page_count] = params[:page_count].to_i
+    # To be modified when converted to one page app
   end
 
   def speed_test_result
