@@ -15,7 +15,7 @@ $(document).ready(function(){
 			}).done(function(result){
 				//TODO: render WPM based on algorithm in controller
 				$('#resultsarea').show();
-				$('#resultsarea').append("<p>Your time was: " + result + " seconds </p>");
+				$('#resultsarea').append("<p>You read " + result["wpm"] + " words per minute</p><p>It will take you " + (result["result"]).toFixed(2) + " hours to read this book</p>");
 			})
 
 		});

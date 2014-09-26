@@ -7,11 +7,19 @@ class StaticPagesController < ApplicationController
 
   def speed_test_result
   	#TODO: WPM calculation
-  	time = params[:time].to_i
-  	@result = time/1000
+  	time = params[:time].to_f
+    #page_count = params[:page_count].to_i
+    page_count = 483
+  	words = 134.0
+    @time = time/1000 #in seconds
+    @WPM =  ((words * 60)/@time).to_i
+    time_per_page = time * (250.0/words)  #in seconds
+    time_per_book = (time_per_page * page_count)/60.0 #in minutes
+
+    @result = (time_per_book/60.0)/60
 
   	respond_to do |format|
-  		format.json {render json: @result}
+  		format.json {render json: {wpm: @WPM, result: @result}}
   	end
 
   end
