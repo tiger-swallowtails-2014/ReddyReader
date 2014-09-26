@@ -1,0 +1,31 @@
+MVP
+- Enter a book
+- Read a block of text
+- Calculate WPM
+- Calculate time to read
+
+Stretch/Random Features
+* login with good reads (OAuth)
+* Test/Calculate retention
+* Save users WPM for later tests
+  - option to retest
+* Charts, compare to other users
+* Caluculate WPM viz spreeder/paragraph
+- Buy this book
+- track books I want to read
+- Fuzzy search when searching for books
+X Select difficulty, given different paragraphs
+X Sample text from input book
+  - this will probably not happen but would be cool
+
+Possible Apis
+- GoodReads
+- Amazon
+- Google Books
+  - open source spreeder
+  - create our own
+- GEM: AR-Book-Finder
+
+Questions
+- Can we determine difficulty of book to read?
+- Can we get word count?
