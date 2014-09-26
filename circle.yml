@@ -1,0 +1,9 @@
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: reddyreader
+  staging:
+    branch: staging
+    heroku:
+      appname: reddyreader-staging
