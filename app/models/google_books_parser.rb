@@ -5,14 +5,12 @@ require 'json'
 class GoogleBooksParser
   def self.get_books(search_term)
     json_response = HTTParty.get(build_search_url(search_term))
-    puts json_response.parsed_response
     json_response.parsed_response["items"].map do |item|
       parseBookFromJSON(item["volumeInfo"])
     end
   end
 
   private
-
     def self.parseBookFromJSON(item_json)
       book_data = {}
       book_data[:author] = item_json["authors"].join(", ")
