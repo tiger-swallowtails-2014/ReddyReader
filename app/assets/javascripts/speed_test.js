@@ -6,12 +6,13 @@ $(document).ready(function(){
 		$('#done').show();
 		$('#done').click(function(event){
 			var time = timeElapsed(event, start);
-			// $.ajax({
-			// 	url: speed_test_result,
-			// 	data: time
-			// }).done(function(){
-			// 	window.alert("yeah!");
-			// })
+			$.ajax({
+				url: '/speed_test_result',
+				method: "post",
+				data: {"time": time}
+			}).done(function(){
+				window.alert("yeah!");
+			})
 
 			$('#testparagraph').append("<p>Your time was: " + time/1000 + " seconds </p>");
 		});

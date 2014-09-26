@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test_result
+  	render nothing: true
+  	p params[:time].to_i
   end
   
 end
