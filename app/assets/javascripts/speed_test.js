@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$('#start').click(function(event){
 		$('#testarea').show();
 		var start = startTimer(event);
@@ -19,6 +20,10 @@ $(document).ready(function(){
 
 		});
 	});
+
+
+
+
 });
 
 var startTimer = function(event){
@@ -29,3 +34,5 @@ var timeElapsed = function(event, start){
 	var diff = event.timeStamp - start;
 	return diff;
 }
+
+

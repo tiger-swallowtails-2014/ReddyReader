@@ -1,7 +1,8 @@
 <h1>ReddyReader</h1>
 
 <h2>Enter a book you would like to read</h2>
-<%= form_tag search_results_path do %>
+<%= form_tag search_results_path, method: :get do %>
+
   <%= text_field_tag :book_title, nil, placeholder: "BOOK TITLE" %>
 
   <%= submit_tag "HOW LONG?" %>
