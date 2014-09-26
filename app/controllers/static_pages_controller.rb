@@ -19,4 +19,9 @@ class StaticPagesController < ApplicationController
   def search_results
     @books = GoogleBooksParser.get_books(params[:book_title])
   end
+
+
+  def login_success
+    render :'assets/spritz/login_success'
+  end
 end

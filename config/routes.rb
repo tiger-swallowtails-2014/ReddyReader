@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   post 'speed_test_result' => 'static_pages#speed_test_result', as: :speed_test_result
   get 'search_results' => 'static_pages#search_results'
 
+  get '/login_success' => 'static_pages#login_success'
+
 end
