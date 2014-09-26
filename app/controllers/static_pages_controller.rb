@@ -1,6 +1,11 @@
 class StaticPagesController < ApplicationController
   def index
   end
+  
+  def search_results
+    @search_results = GoogleBooksParser.get_books(url)
+    # Soon to be AJAX
+  end
 
   def speed_test
   end
@@ -19,7 +24,6 @@ class StaticPagesController < ApplicationController
   def search_results
     @books = GoogleBooksParser.get_books(params[:book_title])
   end
-
 
   def login_success
     render :'assets/spritz/login_success'
