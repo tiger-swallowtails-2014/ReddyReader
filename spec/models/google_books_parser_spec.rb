@@ -4,7 +4,7 @@ RSpec.describe GoogleBooksParser do
   context "#get_books" do
 
     let(:search_data) {
-      search_data = {
+      {
         "items" => [{
             "volumeInfo" => {
               "title" => "Title",
