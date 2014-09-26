@@ -4,5 +4,8 @@ class StaticPagesController < ApplicationController
 
   def speed_test
   end
+
+  def speed_test_result
+  end
   
 end

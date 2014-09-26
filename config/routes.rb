@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'speed_test' => 'static_pages#speed_test', as: :speed_test
+
+  post 'speed_test' => 'static_pages#speed_test_result', as: :speed_test_result
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
