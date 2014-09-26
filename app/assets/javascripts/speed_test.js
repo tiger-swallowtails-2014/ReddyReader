@@ -6,15 +6,18 @@ $(document).ready(function(){
 		$('#done').show();
 		$('#done').click(function(event){
 			var time = timeElapsed(event, start);
+			$('#testarea').slideUp("slow");
 			$.ajax({
 				url: '/speed_test_result',
 				method: "post",
 				data: {"time": time}
-			}).done(function(){
-				window.alert("yeah!");
+			}).done(function(result){
+				//TODO: render WPM based on algorithm in controller
+				$('#resultsarea').show();
+				$('#resultsarea').append("<p>Your time was: " + result + " seconds </p>");
+				
 			})
 
-			$('#testparagraph').append("<p>Your time was: " + time/1000 + " seconds </p>");
 		});
 	});
 });
