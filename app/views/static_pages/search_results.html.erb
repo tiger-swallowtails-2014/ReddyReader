@@ -1,5 +1,7 @@
 <p>Which book were you referring to?</p>
-<div class="book">
-    <img src="<%= @image_url %>">
-    <%= "#{@title}" + ": " + "#{@author}" + ": " + "#{@page_count}" %>
-</div>
+<% @books.each do |book| %>
+  <div class="book">
+    <img src="<%= book.image_url %>">
+    <p><%= "#{book.title}" + ": " + "#{book.author}" + ": " + "#{book.page_count}" %></p>
+  </div>
+<% end %>
