@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def index
     session.clear # To be modified when converted to one page app
   end
-  
+
   def search_results
     @search_results = GoogleBooksParser.get_books(url)
     # Soon to be AJAX
@@ -17,12 +17,16 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test_result
-  	#TODO: WPM calculation
-  	time = params[:time].to_i
-  	@result = time/1000
+    title = session[:title]
+  	time = params[:time].to_f/1000 #in seconds
+  	word_count = params[:word_count].to_i
+    page_count = session[:page_count].to_i
+    @WPM = WpmCalculator.calc_wpm(word_count, time)
+    time_per_page = WpmCalculator.time_per_page(time, word_count)
+    @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
   	respond_to do |format|
-  		format.json {render json: @result}
+  		format.json {render json: {wpm: @WPM, result: @result, title: title}}
   	end
 
   end
