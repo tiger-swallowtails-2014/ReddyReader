@@ -31,5 +31,10 @@ var displayResults = function(server_data){
 }
 
 var selectBook = function(e){
-  $(e.currentTarget)
+  var $current = $(e.currentTarget)
+  var title = $current.find('.title').html()
+  var author = $current.find('.author').html()
+  var page_count = $current.find('.page_count').html()
+  var image_url = $current.find('img').attr('src')
+  console.log(image_url)
 }
