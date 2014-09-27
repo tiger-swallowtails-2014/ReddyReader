@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	$('#start').click(function(event){
-		$('#testparagraph').show();
+		$('#testparagraph').slideDown();
 		var start = startTimer(event);
 		$(this).hide();
 		$('#done').show();
 		$('#done').click(function(event){
 			var time = timeElapsed(event, start);
-			var word_count = $('#testparagraph').html().split(" ").length;
+			var word_count = wordCount($('#testparagraph'));
 			$('#speedtest').slideUp("slow");
 			$.ajax({
 				url: '/speed_test_result',
@@ -21,11 +21,11 @@ $(document).ready(function(){
 
 		});
 	});
-
-
-
-
 });
+
+var wordCount = function(element){
+	return $(element).html().split(" ").length;
+}
 
 var startTimer = function(event){
 	return event.timeStamp
