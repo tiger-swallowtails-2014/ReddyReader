@@ -1,9 +1,15 @@
 var currentRequest = null;
+var searchThread = null;
 
 $(document).ready(function(){
-  $('#searchfield').on("keyup", bookSearch);
+  $('#searchfield').on("keyup", initBookSearch);
   $('#results').on("click", ".book", selectBook);
 });
+
+var initBookSearch = function() {
+  clearTimeout(searchThread);
+  searchThread = setTimeout(bookSearch, 500);
+}
 
 var bookSearch = function(){
   if (currentRequest) {
@@ -11,9 +17,9 @@ var bookSearch = function(){
   }
   var query = $('#searchfield').val();
   if (query.length > 3){
-   currentRequest = $.ajax({
-    url: '/search_results',
-    data: {"book_title": query}
+    currentRequest = $.ajax({
+      url: '/search_results',
+      data: {"book_title": query}
     }).done(displayResults);
   }
 }
