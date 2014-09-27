@@ -33,6 +33,7 @@ class StaticPagesController < ApplicationController
 
   def search_results
     @books = GoogleBooksParser.get_books(params[:book_title])
+    render json: @books.to_json
   end
 
   def login_success
