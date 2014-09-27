@@ -13,12 +13,10 @@ $(document).ready(function(){
 				method: "post",
 				data: {"time": time, "word_count": word_count}
 			}).done(function(result){
-				//TODO: render WPM based on algorithm in controller
 				$('#resultsarea').show();
 				$('#resultsarea').append("<p>You read " + result["wpm"] + " words per minute</p><p>It will take you approximately " + (result["result"]).toFixed(2) + " hours to read " + result["title"] +"</p>");
 				$('#searchform').slideDown();
 			})
-
 		});
 	});
 });
