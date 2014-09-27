@@ -2,6 +2,7 @@ var currentRequest = null;
 var searchThread = null;
 
 $(document).ready(function(){
+  $('#searchfield').focus();
   $('#searchfield').on("keyup", initBookSearch);
   $('#results').on("click", ".book", selectBook);
 });
