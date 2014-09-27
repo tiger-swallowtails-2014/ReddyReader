@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#start').click(function(event){
-		$('#testarea').show();
+		$('#testparagraph').show();
 		var start = startTimer(event);
 		$(this).hide();
 		$('#done').show();
