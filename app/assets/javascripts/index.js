@@ -31,10 +31,19 @@ var displayResults = function(server_data){
 }
 
 var selectBook = function(e){
+  $('#results').empty();
   var $current = $(e.currentTarget)
   var title = $current.find('.title').html()
   var author = $current.find('.author').html()
   var page_count = $current.find('.page_count').html()
   var image_url = $current.find('img').attr('src')
-  console.log(image_url)
+  $('#searchform').hide();
+  $.ajax({
+    url: '/speed_test',
+    data: {"title": title, "author": author, "page_count": page_count, "image_url": image_url}
+  }).done(pageReset)
+}
+
+var pageReset = function(){
+  $('#speedtest').slideDown();
 }

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$('#start').click(function(event){
 		$('#testarea').show();
 		var start = startTimer(event);
@@ -8,7 +7,7 @@ $(document).ready(function(){
 		$('#done').click(function(event){
 			var time = timeElapsed(event, start);
 			var word_count = $('#testparagraph').html().split(" ").length;
-			$('#testarea').slideUp("slow");
+			$('#speedtest').slideUp("slow");
 			$.ajax({
 				url: '/speed_test_result',
 				method: "post",
@@ -17,6 +16,7 @@ $(document).ready(function(){
 				//TODO: render WPM based on algorithm in controller
 				$('#resultsarea').show();
 				$('#resultsarea').append("<p>You read " + result["wpm"] + " words per minute</p><p>It will take you approximately " + (result["result"]).toFixed(2) + " hours to read " + result["title"] +"</p>");
+				$('#searchform').slideDown();
 			})
 
 		});
