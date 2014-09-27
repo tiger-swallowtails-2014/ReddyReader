@@ -3,11 +3,6 @@ class StaticPagesController < ApplicationController
     session.clear # To be modified when converted to one page app
   end
 
-  def search_results
-    @search_results = GoogleBooksParser.get_books(url)
-    # Soon to be AJAX
-  end
-
   def speed_test
     session[:image_url] = params[:image_url]
     session[:title] = params[:title]
