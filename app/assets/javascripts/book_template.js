@@ -1,4 +1,4 @@
-var bookTemplate =  "<div class='book'>" +
+var bookTemplate =  "<div class='book col-sm-3'>" +
                       "<img src='{{image_url}}'>" +
                       "<p class='title'>{{title}}</p>" +
                       "<p class='author'>{{author}}</p>" +
