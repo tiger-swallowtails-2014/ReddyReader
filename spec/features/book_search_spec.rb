@@ -15,7 +15,7 @@ describe "Book search feature" do
 
   it "allows me to search again when no matching books are returned" do
     visit root_path
-    fill_in 'searchfield', with: "!@#$%"
+    fill_in 'searchfield', with: "#############"
     wait_for_ajax
     expect(page).to_not have_css(".book")
     fill_in 'searchfield', with: "1984"
