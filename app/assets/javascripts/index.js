@@ -60,7 +60,7 @@ var addCarouselSlides = function(count) {
 }
 
 var addBooksToCarousel = function(books, numSlides) {
-  $slides = $(".carousel-inner .item");
+  $slides = $(".carousel-inner .item .row div");
   for (var i = 0; i < books.length; i++){
     var slideNum = Math.floor(i / 4);
     $($slides[slideNum]).append(Mustache.render(bookTemplate, books[i]));
