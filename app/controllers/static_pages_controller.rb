@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
     session[:title] = params[:title]
     session[:author] = params[:author]
     session[:page_count] = params[:page_count].to_i
-    # To be modified when converted to one page app
+    render json: {}.to_json
   end
 
   def speed_test_result

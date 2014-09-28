@@ -1,8 +1,0 @@
-<p>Which book were you referring to?</p>
-
-<% @books.each do |book| %>
-  <div class="book">
-    <%= link_to image_tag(book.image_url), speed_test_path(:image_url => book.image_url, :title => book.title, :author => book.author, :page_count => book.page_count) %>
-    <p><%= "#{book.title}" + ": " + "#{book.author}" + ": " + "#{book.page_count}" %></p>
-  </div>
-<% end %>
