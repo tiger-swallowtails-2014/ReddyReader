@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test
+
     session[:image_url] = params[:image_url]
     session[:title] = params[:title]
     session[:author] = params[:author]
@@ -13,12 +14,14 @@ class StaticPagesController < ApplicationController
 
   def speed_test_result
     title = session[:title] || "this book"
-  	time = params[:time].to_f/1000 #in seconds
-  	word_count = params[:word_count].to_i
+    time = params[:time].to_f/1000 #in seconds
+    word_count = params[:word_count].to_i
     page_count = session[:page_count].to_i
     @WPM = WpmCalculator.calc_wpm(word_count, time)
     time_per_page = WpmCalculator.time_per_page(time, word_count)
     @result = WpmCalculator.time_to_read(page_count, time_per_page)
+
+    Bookstat.create(image_url: session[:image_url], book_title: session[:title], page_count: page_count, est_word_count: word_count)
 
   	respond_to do |format|
   		format.json {render json: {wpm: @WPM, result: @result, title: title}}
