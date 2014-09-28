@@ -17,11 +17,11 @@ RSpec.describe GoogleBooksParser do
       }
     }
 
-    it "returns an array of books" do
+    xit "returns an array of books" do
       response = double("Response", parsed_response: search_data)
       expect(HTTParty).to receive(:get).and_return(response)
 
-      GoogleBooksParser.get_books("test")
+      # GoogleBooksParser.get_books("test")
     end
   end
 
