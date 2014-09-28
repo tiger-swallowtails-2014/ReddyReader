@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def book_seeder(term)
+  book = GoogleBooksParser.get_books(term)
+  book = book[0]
+  est_word_count = book.page_count * 250 
+  
+  Stored_Book.create(book_title: book.title, est_word_count: est_word_count, image_url: book.image_url, page_count: book.page_count, author: book.author)
+end
+
+book_seeder("Lord of the Rings")
+book_seeder("les miserables")
