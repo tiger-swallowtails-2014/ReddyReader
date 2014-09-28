@@ -5,9 +5,9 @@
     src: font-url('glyphicons-halflings-regular.svg');
 }
 
-$background: #494b54;
-$text_and_outlines: #f2f2ea;
-$importanttext: #e07570;
+$background: #4e5361;
+$text_and_outlines: #d9d2ce;
+$importanttext: #f78848;
 
 body {
   background-color: $background;
@@ -48,12 +48,16 @@ body {
     background-color: rgba(0, 0, 0, 0);
     border-color: $text_and_outlines;
   }
+
+  :hover{
+    color: $importanttext;
+  }
 }
 
 #resultsarea{
   color: $importanttext;
   width: 40%;
-  margin: 3em auto 3em auto;
+  margin: 3em auto 5em auto;
   font-size: 22px;
 }
 
