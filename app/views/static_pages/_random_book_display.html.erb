@@ -1,11 +1,3 @@
-<div id="randombookdisplay" style="display: none;">
-  <h3>See how long it would take you to read books others have recently searched for</h3>
-  <div id="randombooks" class="row">
-    
-    <% Stored_Book.all.sample(4).each do |book|%>
-      <div class="random_book col-sm-2"><%= image_tag book.image_url%></div>
-    <% end %>
-
-  </div>
-
+<div id="randombookdisplay" class="row text-center" style="display: none;">
+<h3>See how long it will take you to read these other books other users have searched for:</h3>
 </div>
