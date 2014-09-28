@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
     @books = GoogleBooksParser.get_books(params[:book_title])
     render json: @books.to_json
   end
-  
+
   def speed_test
 
     session[:image_url] = params[:image_url]
@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
     time_per_page = WpmCalculator.time_per_page(time, word_count)
     @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
-    Stored_Book.create(image_url: session[:image_url], book_title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
+    Book.create(image_url: session[:image_url], title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
 
     respond_to do |format|
       format.json {render json: {wpm: @WPM, result: @result, title: title}}
@@ -35,7 +35,7 @@ class StaticPagesController < ApplicationController
   end
 
   def random_book_display
-    random_books = Stored_Book.all.sample(4)
+    random_books = Book.limit(4).order("RANDOM()")
     render json: random_books.to_json
   end
 
