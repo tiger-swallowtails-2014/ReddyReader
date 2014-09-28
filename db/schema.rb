@@ -16,17 +16,9 @@ ActiveRecord::Schema.define(version: 20140928022344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: true do |t|
+  create_table "stored_books", force: true do |t|
     t.string   "book_title"
-    t.string   "image_url"
-    t.integer  "page_count"
-    t.integer  "est_word_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "bookstats", force: true do |t|
-    t.string   "book_title"
+    t.string   "author"
     t.string   "image_url"
     t.integer  "page_count"
     t.integer  "est_word_count"
