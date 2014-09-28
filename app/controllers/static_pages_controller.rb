@@ -34,5 +34,10 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def random_book_display
+    random_books = Stored_Book.all.sample(4)
+    render json: random_books.to_json
+  end
+
 
 end
