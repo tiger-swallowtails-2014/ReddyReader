@@ -1,8 +1,12 @@
-
-
 #buttons{
   width: 100px;
   margin: 2em auto 1em auto;
+
+  .btn-outline {
+    color: #ecf0f1;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #ecf0f1;
+  }
 }
 
 #resultsarea{
