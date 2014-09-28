@@ -3,6 +3,11 @@ class StaticPagesController < ApplicationController
     session.clear # To be modified when converted to one page app
   end
 
+  def search_results
+    @books = GoogleBooksParser.get_books(params[:book_title])
+    render json: @books.to_json
+  end
+  
   def speed_test
 
     session[:image_url] = params[:image_url]
@@ -23,18 +28,11 @@ class StaticPagesController < ApplicationController
 
     Bookstat.create(image_url: session[:image_url], book_title: session[:title], page_count: page_count, est_word_count: word_count)
 
-  	respond_to do |format|
-  		format.json {render json: {wpm: @WPM, result: @result, title: title}}
-  	end
+    respond_to do |format|
+      format.json {render json: {wpm: @WPM, result: @result, title: title}}
+    end
 
   end
 
-  def search_results
-    @books = GoogleBooksParser.get_books(params[:book_title])
-    render json: @books.to_json
-  end
 
-  def login_success
-    render :'assets/spritz/login_success'
-  end
 end
