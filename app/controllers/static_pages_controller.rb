@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
     time_per_page = WpmCalculator.time_per_page(time, word_count)
     @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
-    Bookstat.create(image_url: session[:image_url], book_title: session[:title], page_count: page_count, est_word_count: word_count)
+    Stored_Book.create(image_url: session[:image_url], book_title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
 
     respond_to do |format|
       format.json {render json: {wpm: @WPM, result: @result, title: title}}
