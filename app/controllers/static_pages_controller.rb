@@ -13,8 +13,8 @@ class StaticPagesController < ApplicationController
     session[:title] = params[:title]
     session[:author] = params[:author]
     session[:page_count] = params[:page_count].to_i
-    render json: {}.to_json
-    @speed_test = SpeedTest.all.sample
+    speed_test = SpeedTest.all.sample
+    render json: {test:speed_test.test}.to_json
   end
 
   def speed_test_result
