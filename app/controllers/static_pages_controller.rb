@@ -32,12 +32,13 @@ class StaticPagesController < ApplicationController
       format.json {render json: {wpm: @WPM, result: @result, title: title}}
     end
 
+    respond_to do |format|
+      format.json {render json: {wpm: @WPM, result: @result, title: title}}
+    end
   end
 
   def random_book_display
     random_books = Book.limit(4).order("RANDOM()")
     render json: random_books.to_json
   end
-
-
 end
