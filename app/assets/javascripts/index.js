@@ -54,5 +54,5 @@ var selectBook = function(e){
 }
 
 var pageReset = function(){
-  $('#speedtest').slideDown();
+  $('#speedtest').show();
 }
