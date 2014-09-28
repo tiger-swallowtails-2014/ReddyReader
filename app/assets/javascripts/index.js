@@ -26,16 +26,17 @@ var bookSearch = function(){
 }
 
 var displayResults = function(books){
-  // $(".results").show();
   clearCarousel();
 
   var numSlides = Math.ceil(books.length / 4);
   addCarouselIndicators(numSlides);
   addCarouselSlides(numSlides);
   addBooksToCarousel(books, numSlides);
+  $("#results").slideDown();
 }
 
 var clearCarousel = function() {
+  $("#results").hide();
   $(".carousel-indicators").empty();
   $(".carousel-inner").empty();
 }
