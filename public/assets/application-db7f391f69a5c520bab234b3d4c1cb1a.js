@@ -12862,12 +12862,14 @@ return jQuery;
 
 }(jQuery);
 
-var bookTemplate =  "<div class='book col-sm-3'>" +
+var bookTemplate =  "<div class='book col-sm-2'>" +
                       "<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>" +
                       "<p class='title'>{{title}}</p>" +
                       "<p class='author'>{{author}}</p>" +
-                      "<p style='display:none;' class='page_count'>{{page_count}}</p>" +
-                    "</div>"
+                      "<p style='display:none;' class='page_count'>{{page_count}}</p>" + "</div>"
+;
+var carouselIndicatorTemplate = "<li data-target='#search_results_carousel' data-slide-to='{{index}}'></li>";
+var carouselSlideTemplate = "<div class='item'><div class='row'><div class='col-md-10 col-md-offset-1'></div></div></div>"
 ;
 var currentRequest = null;
 var searchThread = null;
@@ -12876,6 +12878,9 @@ $(document).ready(function(){
   $('#searchfield').focus();
   $('#searchfield').on("keyup", initBookSearch);
   $('#results').on("click", ".book", selectBook);
+  $('#logo').click(function(){
+    document.location.reload(true);
+  })
 });
 
 var initBookSearch = function() {
@@ -12897,11 +12902,44 @@ var bookSearch = function(){
 }
 
 var displayResults = function(books){
-  var $results = $('#results');
-  $results.empty();
-  books = books.splice(0,4);
+  clearCarousel();
+
+  var numSlides = Math.ceil(books.length / 4);
+  addCarouselIndicators(numSlides);
+  addCarouselSlides(numSlides);
+  addBooksToCarousel(books, numSlides);
+  $("#results").slideDown();
+}
+
+var clearCarousel = function() {
+  $("#results").hide();
+  $(".carousel-indicators").empty();
+  $(".carousel-inner").empty();
+}
+
+var addCarouselIndicators = function(count) {
+  var $carouselIndicators = $(".carousel-indicators");
+  for(var i = 0; i < count; i++) {
+    var indiciatorHTML = Mustache.render(carouselIndicatorTemplate, { index: i })
+    $carouselIndicators.append(indiciatorHTML);
+  }
+  $carouselIndicators.find("li").first().addClass("active");
+}
+
+var addCarouselSlides = function(count) {
+  var $carouselSlides = $(".carousel-inner");
+  for(var i = 0; i < count; i++) {
+    var carouselSlideHTML = Mustache.render(carouselSlideTemplate)
+    $carouselSlides.append(carouselSlideHTML);
+  }
+  $carouselSlides.find(".item").first().addClass("active");
+}
+
+var addBooksToCarousel = function(books, numSlides) {
+  $slides = $(".carousel-inner .item .row div");
   for (var i = 0; i < books.length; i++){
-    $results.append(Mustache.render(bookTemplate, books[i]));
+    var slideNum = Math.floor(i / 4);
+    $($slides[slideNum]).append(Mustache.render(bookTemplate, books[i]));
   }
 }
 
@@ -12925,37 +12963,42 @@ var selectBook = function(e){
 }
 
 var pageReset = function(){
-  $('#speedtest').slideDown();
+  $('#speedtest').show();
 }
+;
+var randomBookTemplate =  "<div class='book col-sm-2'>" +
+                      "<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>" +
+                      "<p class='book_title'>{{title}}</p>" +
+                      "<p class='author'>{{author}}</p>" +
+                    "<h4>{{time_to_read}} hours</h4>"+
+                    "</div>"
 ;
 $(document).ready(function(){
 	$('#start').click(function(event){
-		$('#testarea').show();
+		$('#testparagraph').slideDown();
 		var start = startTimer(event);
 		$(this).hide();
 		$('#done').show();
 		$('#done').click(function(event){
 			var time = timeElapsed(event, start);
-			var word_count = $('#testparagraph').html().split(" ").length;
+			var word_count = wordCount($('#testparagraph'));
 			$('#speedtest').slideUp("slow");
 			$.ajax({
 				url: '/speed_test_result',
 				method: "post",
 				data: {"time": time, "word_count": word_count}
 			}).done(function(result){
-				//TODO: render WPM based on algorithm in controller
 				$('#resultsarea').show();
 				$('#resultsarea').append("<p>You read " + result["wpm"] + " words per minute</p><p>It will take you approximately " + (result["result"]).toFixed(2) + " hours to read " + result["title"] +"</p>");
-				$('#searchform').slideDown();
+				displayRandomBooks(result["wpm"]);
 			})
-
 		});
 	});
-
-
-
-
 });
+
+var wordCount = function(element){
+	return $(element).html().split(" ").length;
+}
 
 var startTimer = function(event){
 	return event.timeStamp
@@ -12964,6 +13007,25 @@ var startTimer = function(event){
 var timeElapsed = function(event, start){
 	var diff = event.timeStamp - start;
 	return diff;
+}
+
+var displayRandomBooks = function(wpm){
+	$.ajax({
+		url: '/random_book_display'
+	}).done(function(books){
+		$('#randombookdisplay').slideDown();
+		for (i in books){
+			var time_to_read = (books[i].est_word_count/wpm)/60
+			var rand = {
+				title: books[i].book_title,
+				author: books[i].author,
+				image_url: books[i].image_url,
+				time_to_read: time_to_read.toFixed(2)
+			};
+
+			$('#randombookdisplay').append(Mustache.render(randomBookTemplate, rand))
+		}
+	});
 }
 ;
 // This is a manifest file that'll be compiled into application.js, which will include all the files
