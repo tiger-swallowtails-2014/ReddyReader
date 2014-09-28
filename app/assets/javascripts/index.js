@@ -5,6 +5,9 @@ $(document).ready(function(){
   $('#searchfield').focus();
   $('#searchfield').on("keyup", initBookSearch);
   $('#results').on("click", ".book", selectBook);
+  $('#logo').click(function(){
+    document.location.reload(true);
+  })
 });
 
 var initBookSearch = function() {

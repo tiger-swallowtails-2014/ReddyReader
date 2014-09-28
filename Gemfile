@@ -25,7 +25,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   # gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', '~> 1.3.0'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
