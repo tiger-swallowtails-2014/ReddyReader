@@ -15,6 +15,7 @@ $(document).ready(function(){
 			}).done(function(result){
 				$('#resultsarea').show();
 				$('#resultsarea').append("<p>You read " + result["wpm"] + " words per minute</p><p>It will take you approximately " + (result["result"]).toFixed(2) + " hours to read " + result["title"] +"</p>");
+				$('#randombookdisplay').slideDown();
 			})
 		});
 	});
