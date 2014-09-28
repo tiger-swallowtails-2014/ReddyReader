@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  validates_uniqueness_of :title, on: :create
+  validates :title, uniqueness: {case_sensitive: false}, on: create
   validates_presence_of :title, :page_count
 
   after_initialize :defaults
