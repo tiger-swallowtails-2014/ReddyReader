@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test_result
-    title = session[:title]
+    title = session[:title] || "this book"
   	time = params[:time].to_f/1000 #in seconds
   	word_count = params[:word_count].to_i
     page_count = session[:page_count].to_i
