@@ -1,3 +1,3 @@
-var SpeedTester = function(speedTestSelector, resultsWidget, randomBooksWidget) {
-  return new SpeedTestController(new SpeedTest(), new SpeedTestView(speedTestSelector), resultsWidget, randomBooksWidget);
+ReddyReader.SpeedTester = function(speedTestSelector, resultsWidget, randomBooksWidget) {
+  return new ReddyReader.SpeedTestController(new ReddyReader.SpeedTest(), new ReddyReader.SpeedTestView(speedTestSelector), resultsWidget, randomBooksWidget);
 }

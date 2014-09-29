@@ -1,8 +1,8 @@
-var SpeedTestView = function(speedTestSelector) {
+ReddyReader.SpeedTestView = function(speedTestSelector) {
   this.$speedTest = $(speedTestSelector);
 }
 
-SpeedTestView.prototype = {
+ReddyReader.SpeedTestView.prototype = {
   bindEventListeners: function(controller) {
     this.controller = controller;
     this.$speedTest.find("#start").on("click", this.handleStartClick.bind(this));

@@ -1,3 +1,3 @@
-var TestResults = function(testResultsSelector) {
-  return new TestResultsController(new TestResultsView(testResultsSelector));
+ReddyReader.TestResults = function(testResultsSelector) {
+  return new ReddyReader.TestResultsController(new ReddyReader.TestResultsView(testResultsSelector));
 }
