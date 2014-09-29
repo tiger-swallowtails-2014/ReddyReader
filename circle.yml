@@ -12,3 +12,9 @@ database:
   override:
     - cp config/database.yml.ci config/database.yml
     - bundle exec rake db:create db:migrate db:test:prepare db:seed db:seed RAILS_ENV=test --trace
+
+dependencies:
+  post:
+    - bundle exec rake assets:precompile assets:clean
+  cache_directories:
+    - "public/assets"
