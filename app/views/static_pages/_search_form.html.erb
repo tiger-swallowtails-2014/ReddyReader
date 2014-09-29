@@ -4,24 +4,7 @@
     <input type="text" id="searchfield" class="form-control"/>
   </div>
 
-  <div id="results" class="row" style="display: none;">
-    <div id="search_results_carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-      <!-- Indicators -->
-      <ol class="carousel-indicators"></ol>  
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-      </div>
-
-      <!-- Controls -->
-      <a class="left carousel-control" href="#search_results_carousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#search_results_carousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
-  </div>
+  <%= render partial: "book_carousel", locals: { carousel_id: "search_results_carousel" } %>
 </div>
 
-    
+

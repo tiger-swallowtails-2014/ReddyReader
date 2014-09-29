@@ -1,5 +1,4 @@
 <div id="randombookdisplay" style="display: none;">
   <h3>See how long it would take you to read books others have recently searched for</h3>
-  <div id="randombooks" class="row">
-  </div>
+  <%= render partial: "book_carousel", locals: { carousel_id: "random_books_carousel" } %>
 </div>
