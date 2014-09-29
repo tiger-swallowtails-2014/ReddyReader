@@ -1,5 +1,5 @@
 var SpeedTest = function() {
-
+  this.startTime;
 }
 
 SpeedTest.prototype = {
@@ -16,5 +16,14 @@ SpeedTest.prototype = {
 
   handleReceiveSpeedTest: function(serverData) {
     this.controller.receiveParagraph(serverData.test);
+  },
+
+  startTimer: function() {
+    this.startTime = new Date().getTime();
+  },
+
+  stopTimer: function(wordCount) {
+    var elapsedTime = new Date().getTime() - this.startTime;
+    console.log(wordCount);
   }
 }

@@ -6,7 +6,6 @@ var SearchFieldView = function(searchFieldSelector) {
 SearchFieldView.prototype = {
   bindKeyListener: function(controller) {
     this.$searchField.on("keyup", function(evt) {
-      console.log(evt);
       var query = this.$searchField.val();
       controller.getBooks(query, this.isEnterKeyPressed(evt));
     }.bind(this))
