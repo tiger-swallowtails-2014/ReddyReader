@@ -7,3 +7,8 @@ deployment:
     branch: staging
     heroku:
       appname: reddyreader-staging
+
+database:
+  override:
+    - cp config/database.yml.ci config/database.yml
+    - bundle exec rake db:create db:migrate db:test:prepare db:seed db:seed RAILS_ENV=test --trace

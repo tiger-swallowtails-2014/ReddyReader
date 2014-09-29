@@ -1,0 +1,49 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: font-url('glyphicons-halflings-regular.svg');
+}
+
+body {
+  background-color: $background;
+  color: $text_and_outlines;
+}
+
+#logo {
+  cursor: pointer;
+}
+
+#logo:hover {
+  color: $importanttext;
+}
+
+#randombookdisplay{
+  margin: 0 auto 0 auto;
+
+  .img-thumbnail{
+    height: 138px;
+  }
+
+  h3{
+    margin-bottom: 2em;
+  }
+  h4{
+    color: $importanttext;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

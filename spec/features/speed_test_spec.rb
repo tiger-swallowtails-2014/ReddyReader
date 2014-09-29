@@ -1,12 +1,34 @@
+require 'rails_helper'
+
 describe "Speed test" do
-	xit "displays a block of text when I click the Start button" do
-		visit '/speed_test'
+  before(:each) do
+    visit '/'
+    fill_in('searchfield', :with => 'Game of Thrones')
+    wait_for_ajax
+    expect(page).to have_content 'George'
+    first('.book').click
+    wait_for_ajax
+  end
 
-		# click_button 'Start'
-
-		expect(page).to have_content 'Start'
+	it "displays a block of text when I click the Start button" do
+		click_button 'start'
+    wait_for_ajax
+		expect(page).to have_css('#testparagraph')
 	end
 
-  it "hides the text when I click the Done button"
-  it "show the speed test results page when I click the Done button"
+  it "hides the text when I click the Done button" do
+    click_button 'start'
+    wait_for_ajax
+    click_button 'done'
+    wait_for_ajax
+    expect(page).to_not have_css('#testparagraph')
+  end
+
+  it "shows the speed test results page when I click the Done button" do 
+    click_button 'start'
+    wait_for_ajax
+    click_button 'done'
+    wait_for_ajax
+    expect(page).to have_content 'words per minute'
+  end
 end

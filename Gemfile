@@ -18,13 +18,15 @@ gem 'httparty'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'jasmine-rails'
 end
 
 group :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'capybara'
+  # gem 'capybara'
+  gem 'capybara-webkit', '~> 1.3.0'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 end

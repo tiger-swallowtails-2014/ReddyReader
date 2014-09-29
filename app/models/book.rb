@@ -1,11 +1,13 @@
-class Book
-  attr_reader :author, :title, :image_url, :page_count
+class Book < ActiveRecord::Base
+  validates_uniqueness_of :title, on: :create
+  validates_presence_of :title, :page_count
 
-  def initialize(params)
-    @author = params.fetch(:author)
-    @title = params.fetch(:title)
-    @image_url = params.fetch(:image_url, nil)
+  after_initialize :defaults
 
-    @page_count = params.fetch(:page_count)
-  end
+  private
+
+    def defaults
+      self.image_url ||= "/assets/no_image_found_small.png"
+      self.author ||= "Unknown"
+    end
 end
