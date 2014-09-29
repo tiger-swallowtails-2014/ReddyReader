@@ -35,7 +35,7 @@ ReddyReader.BookCarouselView.prototype = {
   },
 
   addCarouselIndicator: function(index) {
-    var indiciatorHTML = Mustache.render(carouselIndicatorTemplate, { index: index, carouselSelector: this.bookCarouselSelector})
+    var indiciatorHTML = Mustache.render($("#carousel_indicator_template").html(), { index: index, carouselSelector: this.bookCarouselSelector})
     this.$bookCarousel.find(".carousel-indicators").append(indiciatorHTML);
   },
 
@@ -47,12 +47,12 @@ ReddyReader.BookCarouselView.prototype = {
   },
 
   addCarouselSlide: function() {
-    var carouselSlideHTML = Mustache.render(carouselSlideTemplate)
+    var carouselSlideHTML = Mustache.render($("#carousel_slide_template").html());
     this.$bookCarousel.find(".carousel-inner").append(carouselSlideHTML);
   },
 
   addCarouselControls: function() {
-    var carouselControlHTML = Mustache.render(carouselControlTemplate, { carouselSelector: this.bookCarouselSelector })
+    var carouselControlHTML = Mustache.render($("#carousel_control_template").html(), { carouselSelector: this.bookCarouselSelector })
     this.$bookCarousel.find(".carousel-controls").append(carouselControlHTML);
   },
 

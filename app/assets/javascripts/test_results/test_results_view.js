@@ -4,8 +4,7 @@ ReddyReader.TestResultsView = function(testResultsSelector) {
 
 ReddyReader.TestResultsView.prototype = {
   showResults: function(result) {
-    $('#resultsarea').append(Mustache.render(testResultsTemplate, result));
-    // displayRandomBooks(result["wpm"]);
+    $('#resultsarea').append(Mustache.render($('#test_results_template').html(), result));
     $('#resultsarea').show();
   }
 }

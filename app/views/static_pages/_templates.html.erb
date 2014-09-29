@@ -1,0 +1,53 @@
+<script id="search_book_template" type="text/template">
+{{#books}}
+<div class='book col-xs-3 text-center'>
+<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>
+<div class='bookinfo row'>
+<p class='title'>{{title}}</p>
+<p class='author'>{{author}}</p>
+<p style='display:none;' class='page_count'>{{page_count}}</p>
+</div>
+</div>
+{{/books}}
+</script>
+
+<script id="random_book_template" type="text/template">
+{{#books}}
+<div class='book col-xs-3 text-center'>
+<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>
+<div class='bookinfo row'>
+<p class='title'>{{title}}</p>
+<p class='author'>{{author}}</p>
+<h4>{{timeToRead}} hours</h4>
+<p style='display:none;' class='page_count'>{{page_count}}</p>
+</div>
+</div>
+{{/books}}
+</script>
+
+<script id="carousel_indicator_template" type="text/template">
+<li data-target='{{carouselSelector}}' data-slide-to='{{index}}'></li>
+</script>
+
+<script id="carousel_slide_template" type="text/template">
+<div class='item'>
+<div class='row'>
+<div class='col-md-10 col-md-offset-1'>
+</div
+</div>
+</div>
+</script>
+
+<script id="carousel_control_template" type="text/template">
+<a class='left carousel-control' href='{{carouselSelector}}' role='button' data-slide='prev'>
+<span class='glyphicon glyphicon-chevron-left'></span>
+</a>
+<a class='right carousel-control' href='{{carouselSelector}}' role='button' data-slide='next'>
+<span class='glyphicon glyphicon-chevron-right'></span>
+</a>
+</script>
+
+<script id="test_results_template" type="text/template">
+<p>You read {{wpm}} words per minute</p>
+<p>It will take you approximately {{result}} hours to read {{title}}</p>
+</script>
