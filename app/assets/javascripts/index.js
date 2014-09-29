@@ -89,6 +89,8 @@ var selectBook = function(e){
   }).done(pageReset);
 }
 
-var pageReset = function(){
+var pageReset = function(server_data){
+  console.log(server_data)
+  $('#testparagraph').text(server_data.test)
   $('#speedtest').show();
 }
