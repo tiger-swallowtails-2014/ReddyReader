@@ -1,9 +1,9 @@
-var SearchFieldView = function(searchFieldSelector) {
+ReddyReader.SearchFieldView = function(searchFieldSelector) {
   this.$searchField = $(searchFieldSelector);
   this.$searchField.focus();
 }
 
-SearchFieldView.prototype = {
+ReddyReader.SearchFieldView.prototype = {
   bindKeyListener: function(controller) {
     this.$searchField.on("keyup", function(evt) {
       var query = this.$searchField.val();

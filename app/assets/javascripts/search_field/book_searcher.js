@@ -1,10 +1,10 @@
-var BookSearcher = function() {
+ReddyReader.BookSearcher = function() {
   this.currentRequest = null;
   this.searchThread = null;
   this.searchDelay = 500;
 }
 
-BookSearcher.prototype = {
+ReddyReader.BookSearcher.prototype = {
   getBooks: function(searchQuery, forceSearch, controller) {
     this.controller = controller;
 

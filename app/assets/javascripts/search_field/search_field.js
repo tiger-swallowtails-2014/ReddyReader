@@ -1,3 +1,3 @@
-var SearchField = function(searchFieldSelector, displayWidget) {
-  return new SearchFieldController(new BookSearcher(), new SearchFieldView(searchFieldSelector), displayWidget);
+ReddyReader.SearchField = function(searchFieldSelector, displayWidget) {
+  return new ReddyReader.SearchFieldController(new ReddyReader.BookSearcher(), new ReddyReader.SearchFieldView(searchFieldSelector), displayWidget);
 }

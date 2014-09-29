@@ -1,8 +1,8 @@
-var RandomBooksGrabber = function(displayWidget) {
+ReddyReader.RandomBooksGrabber = function(displayWidget) {
 	this.displayWidget = displayWidget;
 }
 
-RandomBooksGrabber.prototype =	{
+ReddyReader.RandomBooksGrabber.prototype =	{
 	getRandomBooks: function(wpm) {
 		$.ajax({
 			url: '/random_book_display'

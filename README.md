@@ -1,3 +1,7 @@
+#ReddyReader
+
+####Want to read 50 Shades of Grey but are wondering how long it will take you? Look no further.
+
 ###staging:
 [reddyreader-staging.herokuapp.com](http://reddyreader-staging.herokuapp.com)
 
@@ -6,5 +10,3 @@
 
 
 
-
-####Want to read 50 Shades of Grey but are wondering how long it will take you? Look no further.

@@ -1,8 +1,8 @@
-var SpeedTest = function() {
+ReddyReader.SpeedTest = function() {
   this.startTime;
 }
 
-SpeedTest.prototype = {
+ReddyReader.SpeedTest.prototype = {
   requestSpeedTest: function(book, controller) {
     this.controller = controller;
 

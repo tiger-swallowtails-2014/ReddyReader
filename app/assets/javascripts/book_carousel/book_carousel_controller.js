@@ -1,4 +1,4 @@
-var BookCarouselController = function(view, bookReceiverWidget) {
+ReddyReader.BookCarouselController = function(view, bookReceiverWidget) {
   this.view = view;
   this.bookReceiverWidget = bookReceiverWidget;
 
@@ -7,7 +7,7 @@ var BookCarouselController = function(view, bookReceiverWidget) {
   }
 }
 
-BookCarouselController.prototype = {
+ReddyReader.BookCarouselController.prototype = {
   handleBookList: function(books) {
     this.view.displayBooks(books);
   },

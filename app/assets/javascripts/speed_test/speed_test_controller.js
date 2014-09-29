@@ -1,4 +1,4 @@
-var SpeedTestController = function(speedTest, view, resultsWidget, randomBooksWidget) {
+ReddyReader.SpeedTestController = function(speedTest, view, resultsWidget, randomBooksWidget) {
   this.speedTest = speedTest;
   this.view = view;
   this.resultsWidget = resultsWidget;
@@ -6,7 +6,7 @@ var SpeedTestController = function(speedTest, view, resultsWidget, randomBooksWi
   this.view.bindEventListeners(this);
 }
 
-SpeedTestController.prototype = {
+ReddyReader.SpeedTestController.prototype = {
   receiveBook: function(book) {
     this.speedTest.requestSpeedTest(book, this);
   },

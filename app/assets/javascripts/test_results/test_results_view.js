@@ -1,11 +1,10 @@
-var TestResultsView = function(testResultsSelector) {
+ReddyReader.TestResultsView = function(testResultsSelector) {
   this.$testResults = $(testResultsSelector);
 }
 
-TestResultsView.prototype = {
+ReddyReader.TestResultsView.prototype = {
   showResults: function(result) {
-    $('#resultsarea').append(Mustache.render(testResultsTemplate, result));
-    // displayRandomBooks(result["wpm"]);
+    $('#resultsarea').append(Mustache.render($('#test_results_template').html(), result));
     $('#resultsarea').show();
   }
 }
