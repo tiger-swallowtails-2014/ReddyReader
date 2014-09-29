@@ -11,6 +11,6 @@ SearchFieldController.prototype = {
   },
 
   displayBooks: function(books) {
-    this.displayWidget.displayBooks(books);
+    this.displayWidget.handleBookList(books);
   }
 }

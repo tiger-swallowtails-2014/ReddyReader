@@ -56,6 +56,32 @@ BookCarouselView.prototype = {
   addBookToSlide: function(book, slideNum) {
     $slides = this.$bookCarousel.find(".carousel-inner .item .row > div");
     $($slides[slideNum]).append(Mustache.render(bookTemplate, book));
+  },
+
+  bindBookClickListener: function(bookCarouselController) {
+    this.bookCarouselController = bookCarouselController;
+    this.$bookCarousel.on("click", ".book", this.handleBookClick.bind(this));
+  },
+
+  handleBookClick: function(evt) {
+    $('#searchform').hide();
+    this.clearCarousel();
+    var bookJSON = this.getBookJSON($(evt.currentTarget));
+    this.bookCarouselController.selectBook(bookJSON);
+  },
+
+  getBookJSON: function(elem) {
+    var title = elem.find('.title').html();
+    var author = elem.find('.author').html();
+    var page_count = elem.find('.page_count').html();
+    var image_url = elem.find('img').attr('src');
+
+    return {
+      "title": title,
+      "author": author,
+      "page_count": page_count,
+      "image_url": image_url
+    }
   }
 }
 
