@@ -18,3 +18,9 @@ dependencies:
     - bundle exec rake assets:precompile assets:clean
   cache_directories:
     - "public/assets"
+
+test:
+  post:
+    - bundle exec rake jasmine:ci:
+        environment:
+          RAILS_ENV: test
