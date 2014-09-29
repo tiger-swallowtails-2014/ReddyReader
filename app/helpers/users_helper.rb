@@ -5,7 +5,8 @@ module UsersHelper
   
   def recent_wpm
     user = current_user
-    user.wpms.order(created_at: :desc).first.speed
+    wpm = user.wpms.order(created_at: :desc).first
+    wpm.speed if wpm
   end
   
   def recent_book
