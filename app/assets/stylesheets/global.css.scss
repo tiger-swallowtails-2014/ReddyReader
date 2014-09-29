@@ -78,17 +78,29 @@ body {
 
 #searchfield {
   color: $importanttext;
-  margin-bottom: 1em;
   background-color: rgba(0, 0, 0, 0);
-  width: 100%;
-  text-align: center;
-  height: 100px;
+  width: 50%;
+  margin: 0 auto 1em;
   border: none;
+  border-bottom: 1px solid $text_and_outlines;
+  text-align: center;
+  height: 70px;
   box-shadow: none;
   font-size: 3em;
+  border-radius: 0px;
 }
 
 #results{
   margin: 0 auto 0 auto;
   padding: 2em;
 }
+
+#logo {
+  cursor: pointer;
+}
+
+#logo:hover {
+  color: $importanttext;
+}
+
+
