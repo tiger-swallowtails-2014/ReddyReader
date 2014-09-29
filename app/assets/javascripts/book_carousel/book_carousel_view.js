@@ -23,29 +23,39 @@ BookCarouselView.prototype = {
   },
 
   addCarouselIndicators: function(count) {
-    var $carouselIndicators = this.$bookCarousel.find(".carousel-indicators");
     for(var i = 0; i < count; i++) {
-      var indiciatorHTML = Mustache.render(carouselIndicatorTemplate, { index: i })
-      $carouselIndicators.append(indiciatorHTML);
+      this.addCarouselIndicator(i);
     }
-    $carouselIndicators.find("li").first().addClass("active");
+    this.$bookCarousel.find(".carousel-indicators li").first().addClass("active");
+  },
+
+  addCarouselIndicator: function(index) {
+    var indiciatorHTML = Mustache.render(carouselIndicatorTemplate, { index: index })
+    this.$bookCarousel.find(".carousel-indicators").append(indiciatorHTML);
   },
 
   addCarouselSlides: function(count) {
-    var $carouselSlides = this.$bookCarousel.find(".carousel-inner");
     for(var i = 0; i < count; i++) {
-      var carouselSlideHTML = Mustache.render(carouselSlideTemplate)
-      $carouselSlides.append(carouselSlideHTML);
+      this.addCarouselSlide();
     }
-    $carouselSlides.find(".item").first().addClass("active");
+    this.$bookCarousel.find(".carousel-inner .item").first().addClass("active");
+  },
+
+  addCarouselSlide: function() {
+    var carouselSlideHTML = Mustache.render(carouselSlideTemplate)
+    this.$bookCarousel.find(".carousel-inner").append(carouselSlideHTML);
   },
 
   addBooksToCarousel: function(books, numSlides) {
-    $slides = this.$bookCarousel.find(".carousel-inner .item .row div");
     for (var i = 0; i < books.length; i++){
       var slideNum = Math.floor(i / 4);
-      $($slides[slideNum]).append(Mustache.render(bookTemplate, books[i]));
+      this.addBookToSlide(books[i], slideNum);
     }
+  },
+
+  addBookToSlide: function(book, slideNum) {
+    $slides = this.$bookCarousel.find(".carousel-inner .item .row > div");
+    $($slides[slideNum]).append(Mustache.render(bookTemplate, book));
   }
 }
 
