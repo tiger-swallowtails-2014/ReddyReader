@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140928222458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "books", force: true do |t|
     t.string   "title",                      null: false
     t.string   "author"
@@ -23,6 +24,11 @@ ActiveRecord::Schema.define(version: 20140928222458) do
     t.string   "isbn"
     t.integer  "page_count",     default: 0, null: false
     t.integer  "est_word_count", default: 0
+  end
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "password_digest"
+
     t.datetime "created_at"
     t.datetime "updated_at"
   end

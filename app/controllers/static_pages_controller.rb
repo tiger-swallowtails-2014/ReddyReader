@@ -23,6 +23,7 @@ class StaticPagesController < ApplicationController
     word_count = params[:word_count].to_i
     page_count = session[:page_count].to_i
     @WPM = WpmCalculator.calc_wpm(word_count, time)
+    session[:wpm] = @WPM
     time_per_page = WpmCalculator.time_per_page(time, word_count)
     @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
