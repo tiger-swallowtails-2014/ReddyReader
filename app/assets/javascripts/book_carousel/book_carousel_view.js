@@ -1,10 +1,10 @@
-var BookCarouselView = function(bookCarouselSelector, bookTemplate) {
+ReddyReader.BookCarouselView = function(bookCarouselSelector, bookTemplate) {
   this.bookCarouselSelector = bookCarouselSelector;
   this.$bookCarousel = $(bookCarouselSelector);
   this.bookTemplate = bookTemplate;
 }
 
-BookCarouselView.prototype = {
+ReddyReader.BookCarouselView.prototype = {
   displayBooks: function(books) {
     this.clearCarousel();
     this.buildCarousel(books);

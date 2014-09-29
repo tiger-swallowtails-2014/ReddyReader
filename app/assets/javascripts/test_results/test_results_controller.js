@@ -1,8 +1,8 @@
-var TestResultsController = function(view) {
+ReddyReader.TestResultsController = function(view) {
   this.view = view;
 }
 
-TestResultsController.prototype = {
+ReddyReader.TestResultsController.prototype = {
   displaySpeedTestResults: function(results) {
     this.view.showResults(results);
   }
