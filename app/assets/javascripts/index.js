@@ -71,13 +71,14 @@ var addBooksToCarousel = function(books, numSlides) {
 }
 
 var selectBook = function(e){
+  $('#results').slideUp();
   $('#results').empty();
   var $current = $(e.currentTarget);
   var title = $current.find('.title').html();
   var author = $current.find('.author').html();
   var page_count = $current.find('.page_count').html();
   var image_url = $current.find('img').attr('src');
-  $('#searchform').hide();
+  $('#searchform').slideUp();
   $.ajax({
     url: '/speed_test',
     data: {
