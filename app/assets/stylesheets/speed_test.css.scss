@@ -11,17 +11,17 @@
 
 
   .btn{
-    color: $text_and_outlines; 
+    color: $text_and_outlines;
     &:hover{
       color: $importanttext;
       border-color: $importanttext;
-    } 
+    }
   }
 
   .btn-outline {
     background-color: rgba(0, 0, 0, 0);
-    border-color: $text_and_outlines; 
-  }  
+    border-color: $text_and_outlines;
+  }
 }
 
 
@@ -30,4 +30,8 @@
   width: 40%;
   margin: 3em auto 5em auto;
   font-size: 22px;
+}
+
+#testparagraph{
+  white-space: pre-line;
 }
