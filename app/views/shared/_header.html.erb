@@ -2,7 +2,8 @@
   <%= flash[:error] %>
 <% end %>
 <h1 id="logo" class="text-left">ReddyReader</h1>
-<% if current_user %>
+<% p current_user %>
+<% if current_user && current_user.wpms.first %>
   <h3>Your WPM: <%= recent_wpm %></h3>
   <a href="/speed_test">Retest?</a>
   <a href="/logout">Logout</a>
