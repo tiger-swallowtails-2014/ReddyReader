@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root 'static_pages#index'
 
   get 'search_results' => 'static_pages#search_results', as: :search_results
