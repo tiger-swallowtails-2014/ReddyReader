@@ -5,19 +5,19 @@ var BookSearcher = function() {
 }
 
 BookSearcher.prototype = {
-  getBooks: function(searchQuery, controller) {
+  getBooks: function(searchQuery, forceSearch, controller) {
     this.controller = controller;
 
     clearTimeout(this.searchThread);
-    searchThread = setTimeout(function() {
-                    this.makeServerRequest(searchQuery);
+    this.searchThread = setTimeout(function() {
+                    this.makeServerRequest(searchQuery, forceSearch);
                   }.bind(this), this.searchDelay);
   },
 
-  makeServerRequest: function(query){
+  makeServerRequest: function(query, forceSearch){
     this.abortExistingRequest();
 
-    if (query.length > 3){
+    if (query.length > 3 || forceSearch){
       this.currentRequest = $.ajax({
         url: '/search_results',
         data: {"book_title": query}

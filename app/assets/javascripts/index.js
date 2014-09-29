@@ -1,6 +1,3 @@
-var currentRequest = null;
-var searchThread = null;
-
 $(document).ready(function(){
   var speedTester = new SpeedTester('#speedtest');
   var bookCarousel = new BookCarousel('#search_results_carousel', speedTester)

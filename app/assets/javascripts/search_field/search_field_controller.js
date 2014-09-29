@@ -6,8 +6,8 @@ var SearchFieldController = function(bookSearcher, view, displayWidget) {
 }
 
 SearchFieldController.prototype = {
-  getBooks: function(query) {
-    this.bookSearcher.getBooks(query, this);
+  getBooks: function(query, forceSearch) {
+    this.bookSearcher.getBooks(query, forceSearch, this);
   },
 
   displayBooks: function(books) {
