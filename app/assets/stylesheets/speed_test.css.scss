@@ -1,24 +1,29 @@
-
-#buttons{
-  margin: 2em auto 1em auto;
-  width: 8em;
-
-  .btn-outline {
-    background-color: rgba(0, 0, 0, 0);
-    border-color: $text_and_outlines;
-  }
-
-  :hover{
-    color: $importanttext;
-  }
-}
-
 #speedtest{
   width: 70%;
   margin: 1em auto 1em auto;
   font-size: 18px;
 
 }
+
+#buttons{
+  margin: 2em auto 1em auto;
+  width: 8em;
+
+
+  .btn{
+    color: $text_and_outlines; 
+    &:hover{
+      color: $importanttext;
+      border-color: $importanttext;
+    } 
+  }
+
+  .btn-outline {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: $text_and_outlines; 
+  }  
+}
+
 
 #resultsarea{
   color: $importanttext;

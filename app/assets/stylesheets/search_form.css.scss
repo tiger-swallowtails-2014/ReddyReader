@@ -1,24 +1,23 @@
-
-
 #searchform {
   margin-top: 4em;
+
+  #searchfield {
+    color: $importanttext;
+    background-color: rgba(0, 0, 0, 0);
+    width: 50%;
+    margin: 0 auto 1em;
+    border: none;
+    border-bottom: 1px solid $text_and_outlines;
+    text-align: center;
+    height: 70px;
+    box-shadow: none;
+    font-size: 3em;
+    border-radius: 0px;
+  }
+  
+  #results{
+    margin: 0 auto 0 auto;
+    padding: 2em;
+  }
 }
 
-#searchfield {
-  color: $importanttext;
-  background-color: rgba(0, 0, 0, 0);
-  width: 50%;
-  margin: 0 auto 1em;
-  border: none;
-  border-bottom: 1px solid $text_and_outlines;
-  text-align: center;
-  height: 70px;
-  box-shadow: none;
-  font-size: 3em;
-  border-radius: 0px;
-}
-
-#results{
-  margin: 0 auto 0 auto;
-  padding: 2em;
-}
