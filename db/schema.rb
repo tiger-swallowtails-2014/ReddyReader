@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140928222458) do
     t.datetime "updated_at"
   end
 
-  create_table "speed_tests", force: true do |t|
+  create_table "paragraphs", force: true do |t|
     t.text "test"
   end
 
