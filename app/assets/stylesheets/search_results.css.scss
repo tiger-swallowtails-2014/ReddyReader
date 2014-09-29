@@ -1,25 +1,22 @@
-#search_results_carousel{
-  .carousel-control {
-    &.left, &.right {
-        background-image: none;
-    }
+.carousel-control {
+  &.left, &.right {
+      background-image: none;
   }
+}
 
-  .carousel-inner{
-    margin-bottom: 5em;
-  }
+.carousel-inner{
+  margin-bottom: 5em;
+}
 
-  .carousel-indicators{
-     bottom: -7em;
-  }
+.carousel-indicators{
+   bottom: -7em;
+}
 
-  .img-thumbnail{
-    margin-bottom: 1em;
-    height: 138px;
-  }
+.img-thumbnail{
+  margin-bottom: 1em;
+  height: 138px;
+}
 
-  .bookinfo{
-    height: 70px;
-  }
-
+.bookinfo{
+  height: 100px;
 }

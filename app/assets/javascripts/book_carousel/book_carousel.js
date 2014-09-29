@@ -1,3 +1,3 @@
-var BookCarousel = function(bookCarouselSelector, bookReceiverWidget) {
-  return new BookCarouselController(new BookCarouselView(bookCarouselSelector), bookReceiverWidget);
+var BookCarousel = function(bookCarouselSelector, bookTemplate, bookReceiverWidget) {
+  return new BookCarouselController(new BookCarouselView(bookCarouselSelector, bookTemplate), bookReceiverWidget);
 }

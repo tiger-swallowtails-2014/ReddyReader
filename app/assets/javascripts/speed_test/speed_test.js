@@ -24,6 +24,19 @@ SpeedTest.prototype = {
 
   stopTimer: function(wordCount) {
     var elapsedTime = new Date().getTime() - this.startTime;
-    console.log(wordCount);
+    this.sendResults(elapsedTime, wordCount);
+  },
+
+  sendResults: function(elapsedTime, wordCount) {
+    $.ajax({
+      url: '/speed_test_result',
+      method: "post",
+      data: {"time": elapsedTime, "word_count": wordCount}
+    }).done(this.handleServerResponse.bind(this));
+  },
+
+  handleServerResponse: function(serverData) {
+    serverData.result = serverData.result.toFixed(2);
+    this.controller.displaySpeedTestResults(serverData)
   }
 }

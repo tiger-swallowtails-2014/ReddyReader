@@ -1,5 +1,7 @@
-var BookCarouselView = function(bookCarouselSelector) {
+var BookCarouselView = function(bookCarouselSelector, bookTemplate) {
+  this.bookCarouselSelector = bookCarouselSelector;
   this.$bookCarousel = $(bookCarouselSelector);
+  this.bookTemplate = bookTemplate;
 }
 
 BookCarouselView.prototype = {
@@ -12,6 +14,8 @@ BookCarouselView.prototype = {
     this.$bookCarousel.hide();
     this.$bookCarousel.find(".carousel-indicators").empty();
     this.$bookCarousel.find(".carousel-inner").empty();
+    this.$bookCarousel.find(".carousel-controls").empty();
+
     this.$bookCarousel.show();
   },
 
@@ -19,6 +23,7 @@ BookCarouselView.prototype = {
     var numSlides = Math.ceil(books.length / 4);
     this.addCarouselIndicators(numSlides);
     this.addCarouselSlides(numSlides);
+    this.addCarouselControls();
     this.addBooksToCarousel(books, numSlides);
   },
 
@@ -30,7 +35,7 @@ BookCarouselView.prototype = {
   },
 
   addCarouselIndicator: function(index) {
-    var indiciatorHTML = Mustache.render(carouselIndicatorTemplate, { index: index })
+    var indiciatorHTML = Mustache.render(carouselIndicatorTemplate, { index: index, carouselSelector: this.bookCarouselSelector})
     this.$bookCarousel.find(".carousel-indicators").append(indiciatorHTML);
   },
 
@@ -46,6 +51,11 @@ BookCarouselView.prototype = {
     this.$bookCarousel.find(".carousel-inner").append(carouselSlideHTML);
   },
 
+  addCarouselControls: function() {
+    var carouselControlHTML = Mustache.render(carouselControlTemplate, { carouselSelector: this.bookCarouselSelector })
+    this.$bookCarousel.find(".carousel-controls").append(carouselControlHTML);
+  },
+
   addBooksToCarousel: function(books, numSlides) {
     for (var i = 0; i < books.length; i++){
       var slideNum = Math.floor(i / 4);
@@ -55,7 +65,7 @@ BookCarouselView.prototype = {
 
   addBookToSlide: function(book, slideNum) {
     $slides = this.$bookCarousel.find(".carousel-inner .item .row > div");
-    $($slides[slideNum]).append(Mustache.render(bookTemplate, book));
+    $($slides[slideNum]).append(Mustache.render(this.bookTemplate, book));
   },
 
   bindBookClickListener: function(bookCarouselController) {

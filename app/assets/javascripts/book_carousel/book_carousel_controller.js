@@ -1,7 +1,10 @@
 var BookCarouselController = function(view, bookReceiverWidget) {
   this.view = view;
   this.bookReceiverWidget = bookReceiverWidget;
-  this.view.bindBookClickListener(this);
+
+  if(bookReceiverWidget) {
+  	this.view.bindBookClickListener(this);
+  }
 }
 
 BookCarouselController.prototype = {

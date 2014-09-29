@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140929043441) do
     t.string   "isbn"
     t.integer  "page_count",     default: 0, null: false
     t.integer  "est_word_count", default: 0
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

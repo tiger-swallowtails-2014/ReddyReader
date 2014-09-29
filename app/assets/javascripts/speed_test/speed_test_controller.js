@@ -1,6 +1,8 @@
-var SpeedTestController = function(speedTest, view) {
+var SpeedTestController = function(speedTest, view, resultsWidget, randomBooksWidget) {
   this.speedTest = speedTest;
   this.view = view;
+  this.resultsWidget = resultsWidget;
+  this.randomBooksWidget = randomBooksWidget;
   this.view.bindEventListeners(this);
 }
 
@@ -19,5 +21,10 @@ SpeedTestController.prototype = {
 
   stopSpeedTest: function(wordCount) {
     this.speedTest.stopTimer(wordCount);
+  },
+
+  displaySpeedTestResults: function(results) {
+    this.resultsWidget.displaySpeedTestResults(results);
+    this.randomBooksWidget.getRandomBooks(results.wpm);
   }
 }
