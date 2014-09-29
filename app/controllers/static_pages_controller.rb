@@ -23,14 +23,16 @@ class StaticPagesController < ApplicationController
     page_count = session[:page_count].to_i
     @WPM = WpmCalculator.calc_wpm(word_count, time)
     
-    user = User.where(id: session[:user_id]).first
-    user.wpms.create(speed: @WPM) if user
+    user = User.get_user(session[:user_id])
+    book = Book.create(image_url: session[:image_url], title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
+    
+    if user
+      User.set_wpm(@WPM, user)
+      user.books << book
+    end
     
     time_per_page = WpmCalculator.time_per_page(time, word_count)
     @result = WpmCalculator.time_to_read(page_count, time_per_page)
-
-    book = Book.create(image_url: session[:image_url], title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
-    user.books << book if user
 
     respond_to do |format|
       format.json {render json: {wpm: @WPM, result: @result, title: title}}
