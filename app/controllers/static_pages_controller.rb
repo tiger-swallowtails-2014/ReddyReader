@@ -31,7 +31,6 @@ class StaticPagesController < ApplicationController
       user.books << book
     end
     
-    
     time_per_page = WpmCalculator.time_per_page(time, word_count)
     @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
