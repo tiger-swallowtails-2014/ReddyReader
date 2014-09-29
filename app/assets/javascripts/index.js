@@ -2,31 +2,13 @@ var currentRequest = null;
 var searchThread = null;
 
 $(document).ready(function(){
-  $('#searchfield').focus();
-  $('#searchfield').on("keyup", initBookSearch);
+  var searchField = new SearchField('#searchfield', this);
+
   $('#results').on("click", ".book", selectBook);
   $('#logo').click(function(){
     document.location.reload(true);
   })
 });
-
-var initBookSearch = function() {
-  clearTimeout(searchThread);
-  searchThread = setTimeout(bookSearch, 500);
-}
-
-var bookSearch = function(){
-  if (currentRequest) {
-    currentRequest.abort();
-  }
-  var query = $('#searchfield').val();
-  if (query.length > 3){
-    currentRequest = $.ajax({
-      url: '/search_results',
-      data: {"book_title": query}
-    }).done(displayResults);
-  }
-}
 
 var displayResults = function(books){
   clearCarousel();
