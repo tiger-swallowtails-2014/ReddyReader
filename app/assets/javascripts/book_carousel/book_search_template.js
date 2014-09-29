@@ -1,5 +1,5 @@
-var bookSearchTemplate =  "<div class='book col-xs-3 text-center'>" +
+var bookSearchTemplate =  "{{#books}}<div class='book col-xs-3 text-center'>" +
 			                    "<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>" +
 			                    "<div class='bookinfo row'><p class='title'>{{title}}</p>" +
 			                    "<p class='author'>{{author}}</p>" +
-			                    "<p style='display:none;' class='page_count'>{{page_count}}</p></div>" + "</div>"
+			                    "<p style='display:none;' class='page_count'>{{page_count}}</p></div></div>{{/books}}"

@@ -57,15 +57,15 @@ ReddyReader.BookCarouselView.prototype = {
   },
 
   addBooksToCarousel: function(books, numSlides) {
-    for (var i = 0; i < books.length; i++){
-      var slideNum = Math.floor(i / 4);
-      this.addBookToSlide(books[i], slideNum);
+    for (var i = 0; i < numSlides; i++){
+      var bookGroup = books.slice(i * 4, (i + 1) * 4);
+      this.addBooksToSlide({books: bookGroup}, i);
     }
   },
 
-  addBookToSlide: function(book, slideNum) {
+  addBooksToSlide: function(books, slideNum) {
     $slides = this.$bookCarousel.find(".carousel-inner .item .row > div");
-    $($slides[slideNum]).append(Mustache.render(this.bookTemplate, book));
+    $($slides[slideNum]).append(Mustache.render(this.bookTemplate, books));
   },
 
   bindBookClickListener: function(bookCarouselController) {
