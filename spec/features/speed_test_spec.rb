@@ -13,8 +13,7 @@ describe "Speed test" do
 	it "displays a block of text when I click the Start button" do
 		click_button 'start'
     wait_for_ajax
-		expect(page).to have_content 'Marie Curie'
-    # Change Marie Curie to allow for switching of test text
+		expect(page).to have_css('#testparagraph')
 	end
 
   it "hides the text when I click the Done button" do
@@ -22,8 +21,7 @@ describe "Speed test" do
     wait_for_ajax
     click_button 'done'
     wait_for_ajax
-    expect(page).to have_no_content 'Marie Curie'
-    # Change Marie Curie to allow for switching of test text
+    expect(page).to_not have_css('#testparagraph')
   end
 
   it "show the speed test results page when I click the Done button" do
