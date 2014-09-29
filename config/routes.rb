@@ -7,4 +7,8 @@ Rails.application.routes.draw do
  
   get 'random_book_display' => 'static_pages#random_book_display', as: :random_book_display
   
+  post 'login' => 'sessions#create', as: :login
+  get 'logout' => 'sessions#destroy', as: :logout
+  post 'register' => 'users#create', as: :register
+  
 end
