@@ -31,7 +31,9 @@ profile
   end
 
   def user_book_display
-    render json: {books: current_user.books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
+    if current_user
+      render json: {books: current_user.books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
+    end
   end
   
   private
