@@ -1,3 +1,5 @@
+# CR this should be in WPM
+
 class WpmCalculator
   def self.calc_wpm(word_count, time_in_seconds)
     return ((word_count * 60) / time_in_seconds).to_i

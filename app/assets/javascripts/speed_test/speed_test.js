@@ -37,6 +37,7 @@ ReddyReader.SpeedTest.prototype = {
 
   handleServerResponse: function(serverData) {
     serverData.result = serverData.result.toFixed(2);
+    // CR leave the toFixed for display
     this.controller.displaySpeedTestResults(serverData)
   }
 }

@@ -27,6 +27,7 @@ ReddyReader.SpeedTestView.prototype = {
   },
 
   getWordCount: function() {
+    // CR word_count from server
     return this.$speedTest.find('#testparagraph').html().split(" ").length;
   }
 }

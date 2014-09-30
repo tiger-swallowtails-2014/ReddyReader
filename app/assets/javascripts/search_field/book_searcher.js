@@ -24,7 +24,7 @@ ReddyReader.BookSearcher.prototype = {
       }).done(this.handleServerResponse.bind(this));
     }
   },
-
+// CR add solid tests around this to reduce the amount of information / code flow that is only in your head
   abortExistingRequest: function() {
     if (this.currentRequest) {
       this.currentRequest.abort();
