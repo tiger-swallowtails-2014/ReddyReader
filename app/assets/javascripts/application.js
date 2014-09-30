@@ -16,5 +16,6 @@
 //= require mustache
 //= require bootstrap
 //= require bootstrap_validator
+//= require bootstrap-slider
 //= require index
 //= require_tree .

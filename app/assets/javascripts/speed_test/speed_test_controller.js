@@ -7,8 +7,8 @@ ReddyReader.SpeedTestController = function(speedTest, view, resultsWidget, rando
 }
 
 ReddyReader.SpeedTestController.prototype = {
-  receiveBook: function(book) {
-    this.speedTest.requestSpeedTest(book, this);
+  requestSpeedTest: function(book, difficulty) {
+    this.speedTest.requestSpeedTest(book, difficulty, this);
   },
 
   receiveParagraph: function(paragraph) {

@@ -3,12 +3,13 @@ ReddyReader.SpeedTest = function() {
 }
 
 ReddyReader.SpeedTest.prototype = {
-  requestSpeedTest: function(book, controller) {
+  requestSpeedTest: function(book, difficulty, controller) {
     this.controller = controller;
+    var data = {book: book, difficulty: difficulty};
 
     $.ajax({
       url: '/speed_test',
-      data: book
+      data: data
     }).done(function(serverData) {
       this.handleReceiveSpeedTest(serverData);
     }.bind(this));
