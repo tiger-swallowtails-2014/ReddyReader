@@ -9,10 +9,10 @@
   <% end %>
   <%= button_to "Logout", "/logout", method: :get, class: "btn btn-primary" %>
 <% else %>
-  <button class="btn btn-primary" data-toggle="modal" data-target="#login_lightbox">
+  <button id="modal_login" class="btn btn-primary" data-toggle="modal" data-target="#login_lightbox">
     Login
   </button>
-  <button class="btn btn-primary" data-toggle="modal" data-target="#register_lightbox">
+  <button id="modal_register" class="btn btn-primary" data-toggle="modal" data-target="#register_lightbox">
     Register
   </button>
 <% end %>
