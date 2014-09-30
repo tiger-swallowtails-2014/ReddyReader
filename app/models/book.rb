@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
   validates_presence_of :title, :page_count
 
   has_and_belongs_to_many :users
+  belongs_to :reading_test
   
   after_initialize :defaults
 
