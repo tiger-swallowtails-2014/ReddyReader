@@ -6,12 +6,13 @@ $(document).ready(function(){
   var testResults = new ReddyReader.TestResults('#resultsarea', randomBookCarousel);
   var randomBooksGrabber = new ReddyReader.RandomBooksGrabber(randomBookCarousel);
   var speedTester = new ReddyReader.SpeedTester('#speedtest', testResults, randomBooksGrabber);
-  var bookSearchCarousel = new ReddyReader.BookCarousel('#search_results_carousel', $('#search_book_template').html(), speedTester)
+  var difficultySlider = new ReddyReader.DifficultySlider('#difficulty_modal', speedTester)
+  var bookSearchCarousel = new ReddyReader.BookCarousel('#search_results_carousel', $('#search_book_template').html(), difficultySlider)
   var searchField = new ReddyReader.SearchField('#searchfield', bookSearchCarousel);
   new ReddyReader.LoginFormValidator("#login_form");
   new ReddyReader.RegisterFormValidator("#register_form");
 
   $('#logo').click(function(){
     document.location.reload(true);
-  })
+  });
 });
