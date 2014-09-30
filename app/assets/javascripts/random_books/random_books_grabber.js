@@ -3,19 +3,20 @@ ReddyReader.RandomBooksGrabber = function(displayWidget) {
 }
 
 ReddyReader.RandomBooksGrabber.prototype =	{
-	getRandomBooks: function(wpm) {
+	getRandomBooks: function(time_per_page) {
 		$.ajax({
 			url: '/random_book_display'
 		}).done(function(books){
-			books = this.addWPMToBooks(books, wpm);
+			books = this.addWPMToBooks(books, time_per_page);
 			this.displayWidget.handleBookList(books);
 			$("#randombookdisplay").show();
 		}.bind(this));
 	},
 
-	addWPMToBooks: function(books, wpm) {
+	addWPMToBooks: function(books, time_per_page) {
 		for(var i = 0; i < books.length; i++) {
-			books[i].timeToRead = ((books[i].est_word_count / wpm) / 60).toFixed(2);
+			books[i].timeToRead = ((books[i].page_count * time_per_page)/60).toFixed(2);
+			//in hours
 		}
 		return books;
 	}

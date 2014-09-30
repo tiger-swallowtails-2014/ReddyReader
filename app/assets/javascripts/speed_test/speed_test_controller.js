@@ -19,12 +19,12 @@ ReddyReader.SpeedTestController.prototype = {
     this.speedTest.startTimer();
   },
 
-  stopSpeedTest: function(wordCount) {
-    this.speedTest.stopTimer(wordCount);
+  stopSpeedTest: function() {
+    this.speedTest.stopTimer();
   },
 
   displaySpeedTestResults: function(results) {
     this.resultsWidget.displaySpeedTestResults(results);
-    this.randomBooksWidget.getRandomBooks(results.wpm);
+    this.randomBooksWidget.getRandomBooks(results.time_per_page);
   }
 }

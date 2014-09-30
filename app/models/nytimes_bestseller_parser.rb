@@ -22,3 +22,4 @@ module NytimesBestsellerParser
       URI.escape("http://api.nytimes.com/svc/books/v2/lists//combined-print-and-e-book-fiction.json?&offset=&sortby=published-date&sortorder=&api-key=32a733e9b929d7c45881a08ecf0a1da8:6:61713050")
     end
 end
+

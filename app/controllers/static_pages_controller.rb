@@ -12,31 +12,30 @@ class StaticPagesController < ApplicationController
     session[:title] = params[:title]
     session[:author] = params[:author]
     session[:page_count] = params[:page_count].to_i
-    speed_test = Paragraph.all.sample
-    render json: {test:speed_test.test}.to_json
+
+    paragraph = Paragraph.all.sample
+    session[:paragraph_id] = paragraph.id 
+
+    render json: {content:paragraph.content}.to_json
   end
 
   def speed_test_result
-    title = session[:title] || "this book"
-    time = params[:time].to_f/1000 #in seconds
-    word_count = params[:word_count].to_i
-    page_count = session[:page_count].to_i
-    @WPM = WpmCalculator.calc_wpm(word_count, time)
-    
-    user = User.get_user(session[:user_id])
-    book = Book.create(image_url: session[:image_url], title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
-    
-    if user
-      User.set_wpm(@WPM, user)
+    puts "TIME FROM PARAMS"
+    p params[:time]
+
+    book = Book.create(image_url: session[:image_url], title: session[:title], page_count: session[:page_count], author: session[:author])
+
+    reading_test = ReadingTest.create( time_elapsed: params[:time], paragraph_id: session[:paragraph_id], book_id: book.id)
+
+
+    if @current_user
+      reading_test.user_id << current_user.id
       user.books << book
     end
-    
-    time_per_page = WpmCalculator.time_per_page(time, word_count)
-    @result = WpmCalculator.time_to_read(page_count, time_per_page)
 
-    respond_to do |format|
-      format.json {render json: {wpm: @WPM, result: @result, title: title}}
-    end
+    p reading_test
+
+    render json: {wpm: reading_test.wpm, result: reading_test.time_to_read, title: book.title, time_per_page: reading_test.time_per_page}.to_json
   end
 
   def random_book_display

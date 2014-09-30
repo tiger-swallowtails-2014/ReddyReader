@@ -18,7 +18,7 @@ ReddyReader.SpeedTestView.prototype = {
 
   handleDoneClick: function() {
     this.$speedTest.slideUp("slow");
-    this.controller.stopSpeedTest(this.getWordCount());
+    this.controller.stopSpeedTest();
   },
 
   showParagraph: function(paragraph) {
@@ -26,7 +26,4 @@ ReddyReader.SpeedTestView.prototype = {
     this.$speedTest.show();
   },
 
-  getWordCount: function() {
-    return this.$speedTest.find('#testparagraph').html().split(" ").length;
-  }
 }
