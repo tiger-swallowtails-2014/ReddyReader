@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
 
 
     render json: {author: recent_book.author, image_url: recent_book.image_url, wpm: reading_test.wpm, result: reading_test.time_to_read, title: recent_book.title, time_per_page: reading_test.time_per_page}.to_json
-profile
+
   end
 
   def random_book_display
@@ -33,6 +33,8 @@ profile
   def user_book_display
     if current_user
       render json: {books: current_user.books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
+    else
+      render nothing: true
     end
   end
   
