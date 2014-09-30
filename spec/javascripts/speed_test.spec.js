@@ -11,13 +11,15 @@ describe("Speed Test specs", function(){
   it("starts a timer",function(){
     var speedTest = new ReddyReader.SpeedTest();
     speedTest.startTimer();
-    expect(speedTest.startTime).toEqual(new Date().getTime())
+    expect(speedTest.startTime).toEqual(new Date().getTime());
   });
 
   it("gets elapsed time once timer is stopped",function(){
     var speedTest = new ReddyReader.SpeedTest();
+    spyOn(speedTest, "sendResults");
     speedTest.startTimer();
-
+    speedTest.stopTimer();
+    expect(speedTest.sendResults).toHaveBeenCalled();
   });
 
   it("sends elapsed time and word count to server",function(){
