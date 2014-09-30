@@ -10,12 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require chart
 //= require jquery
 //= require jquery_ujs
 //= require mustache
 //= require bootstrap
 //= require bootstrap_validator
 //= require bootstrap-slider
+//= require chart
 //= require index
 //= require_tree .

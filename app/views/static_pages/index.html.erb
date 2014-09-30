@@ -5,3 +5,6 @@
 <%= render "random_book_display" %>
 <%= render "templates" %>
 <%= render "difficulty" %>
+<% if current_user %>
+  <%= render "user_profile" %>
+<% end %>
