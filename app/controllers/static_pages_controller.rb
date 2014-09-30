@@ -35,7 +35,7 @@ class StaticPagesController < ApplicationController
 
     p reading_test
 
-    render json: {wpm: reading_test.wpm, result: reading_test.time_to_read, title: book.title}.to_json
+    render json: {wpm: reading_test.wpm, result: reading_test.time_to_read, title: book.title, time_per_page: reading_test.time_per_page}.to_json
   end
 
   def random_book_display

@@ -5,7 +5,6 @@ class ReadingTest < ActiveRecord::Base
 
 
   def wpm
-    p self.paragraph.word_count
     wpm = (self.paragraph.word_count * 60) /(time_elapsed/1000.0)
     wpm.to_i
   end
