@@ -30,9 +30,15 @@ profile
     render json: random_books.to_json
   end
 
+  def user_book_display
+    render json: current_user.books.to_json
+  end
+  
   private
 
   def book_params
     params.require(:book).permit(:title, :author, :image_url, :isbn, :page_count)
   end
+
+
 end

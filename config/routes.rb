@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post 'speed_test_result' => 'static_pages#speed_test_result', as: :speed_test_result
  
   get 'random_book_display' => 'static_pages#random_book_display', as: :random_book_display
+
+  get 'user_book_display' => 'static_pages#user_book_display', as: :user_book_display
   
   post 'login' => 'sessions#create', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
