@@ -61,11 +61,11 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.before(:each) do
+  config.before(:all) do
     DatabaseCleaner.start
     Rails.application.load_seed
   end
-  config.after(:each) do
+  config.after(:all) do
     DatabaseCleaner.clean
   end
 
