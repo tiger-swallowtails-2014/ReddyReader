@@ -8,6 +8,8 @@ $(document).ready(function(){
   var speedTester = new ReddyReader.SpeedTester('#speedtest', testResults, randomBooksGrabber);
   var bookSearchCarousel = new ReddyReader.BookCarousel('#search_results_carousel', $('#search_book_template').html(), speedTester)
   var searchField = new ReddyReader.SearchField('#searchfield', bookSearchCarousel);
+  new ReddyReader.LoginFormValidator("#login_form");
+  new ReddyReader.RegisterFormValidator("#register_form");
 
   $('#logo').click(function(){
     document.location.reload(true);
