@@ -1,6 +1,3 @@
-include GoogleBooksParser
-include NytimesBestsellerParser
-
 Paragraph.delete_all
 Paragraph.create(difficulty: 1, content: "This is a really simple piece of text")
 Paragraph.create(difficulty: 2, content: "For this reason a prince ought to take care that he never lets anything slip from his lips that is not replete with the above-named five qualities, that he may appear to him who sees and hears him altogether merciful, faithful, humane, upright, and religious. There is nothing more necessary to appear to have than this last quality, inasmuch as men judge generally more by the eye than by the hand, because it belongs to everybody to see you, to few to come in touch with you. Every one sees what you appear to be, few really know what you are, and those few dare not oppose themselves to the opinion of the many, who have the majesty of the state to defend them; and in the actions of all men, and especially of princes, which it is not prudent to challenge, one judges by the result.")
@@ -9,5 +6,4 @@ Paragraph.create(difficulty: 3, content: "Call me Ishmael. Some years ago--never
 Paragraph.create(difficulty: 4, content: "As an epicure snatches a taste of every dish which is successively brought to table, he not having allowed himself time to enjoy the one before, so have I gone from one subject to another without having discovered what I sought at first, the nature of justice. I left that enquiry and turned away to consider whether justice is virtue and wisdom or evil and folly; and when there arose a further question about the comparative advantages of justice and injustice, I could not refrain from passing on to that. And the result of the whole discussion has been that I know nothing at all. For I know not what justice is, and therefore I am not likely to know whether it is or is not a virtue, nor can I say whether the just man is happy or unhappy.")
 Paragraph.create(difficulty: 5, content: "This is a really complicated piece of text!!!1")
 
-
-
+Rake::Task['db:seed:bestsellers'].invoke

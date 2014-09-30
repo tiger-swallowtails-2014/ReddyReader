@@ -1,9 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
+require 'rake'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 Capybara.default_driver = :selenium
+ReddyReader::Application.load_tasks
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -59,11 +61,11 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.before(:each) do
+  config.before(:all) do
     DatabaseCleaner.start
     Rails.application.load_seed
   end
-  config.after(:each) do
+  config.after(:all) do
     DatabaseCleaner.clean
   end
 
