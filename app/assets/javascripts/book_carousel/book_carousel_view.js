@@ -2,6 +2,7 @@ ReddyReader.BookCarouselView = function(bookCarouselSelector, bookTemplate) {
   this.bookCarouselSelector = bookCarouselSelector;
   this.$bookCarousel = $(bookCarouselSelector);
   this.bookTemplate = bookTemplate;
+  // CR initialize selectors like .carousel-inner here instead of sprinkled in code.
 }
 
 ReddyReader.BookCarouselView.prototype = {
@@ -20,13 +21,14 @@ ReddyReader.BookCarouselView.prototype = {
   },
 
   buildCarousel: function(books) {
+    // CR what a lovely magic number you have here...
     var numSlides = Math.ceil(books.length / 4);
     this.addCarouselIndicators(numSlides);
     this.addCarouselSlides(numSlides);
     this.addCarouselControls();
     this.addBooksToCarousel(books, numSlides);
   },
-
+// CR consider adding slides and indicators in the same loop
   addCarouselIndicators: function(count) {
     for(var i = 0; i < count; i++) {
       this.addCarouselIndicator(i);
