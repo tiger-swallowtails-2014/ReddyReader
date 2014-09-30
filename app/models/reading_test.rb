@@ -1,6 +1,6 @@
 class ReadingTest < ActiveRecord::Base
-  has_one :book
-  has_one :paragraph
+  belongs_to :book
+  belongs_to :paragraph
   belongs_to :user
 
 

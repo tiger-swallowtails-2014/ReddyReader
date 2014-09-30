@@ -26,17 +26,23 @@ ActiveRecord::Schema.define(version: 20140930022831) do
     t.datetime "updated_at"
   end
 
+  create_table "books_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "paragraphs", force: true do |t|
     t.text    "content"
-    t.integer "difficulty",      default: 3
-    t.integer "reading_test_id"
+    t.integer "difficulty", default: 3
   end
 
   create_table "reading_tests", force: true do |t|
     t.integer  "time_elapsed"
     t.integer  "user_id"
-    t.integer  "paragraph_id"
     t.integer  "book_id"
+    t.integer  "paragraph_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,13 +50,6 @@ ActiveRecord::Schema.define(version: 20140930022831) do
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users_books", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
