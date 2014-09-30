@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20140930022831) do
   enable_extension "plpgsql"
 
   create_table "books", force: true do |t|
-    t.string   "title",                  null: false
+    t.string   "title",                      null: false
     t.string   "author"
-    t.string   "image_url",              null: false
+    t.string   "image_url",                  null: false
     t.string   "isbn"
-    t.integer  "page_count", default: 0, null: false
+    t.integer  "page_count", default: 0,     null: false
+    t.boolean  "bestseller", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
