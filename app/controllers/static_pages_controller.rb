@@ -20,7 +20,8 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test_result
-    
+    puts "TIME FROM PARAMS"
+    p params[:time]
 
     book = Book.create(image_url: session[:image_url], title: session[:title], page_count: session[:page_count], author: session[:author])
 
@@ -33,7 +34,7 @@ class StaticPagesController < ApplicationController
     end
 
     p reading_test
-    
+
     render json: {wpm: reading_test.wpm, result: reading_test.time_to_read, title: book.title}.to_json
   end
 
