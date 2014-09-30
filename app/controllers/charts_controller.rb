@@ -6,7 +6,10 @@ class ChartsController < ApplicationController
 
   def wpm_history
     if current_user
-      render json: current_user.reading_tests.to_json
+      wpms = []
+      current_user.reading_tests.each{|test| wpms << test.wpm}
+
+      render json: {tests: current_user.reading_tests, wpms: wpms}.to_json
     else
       render nothing: true
     end

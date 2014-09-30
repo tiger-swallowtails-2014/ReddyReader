@@ -1,11 +1,11 @@
 ReddyReader.WPMHistoryChart = function(divID){
   this.divID = divID 
-  this.getData();
+  this.getRawData();
 }
 
 ReddyReader.WPMHistoryChart.prototype = {
   
-  getData: function(){
+  getRawData: function(){
     $.ajax({
       url: '/charts/wpm_history'
     }).done(function(reading_tests){
@@ -14,13 +14,12 @@ ReddyReader.WPMHistoryChart.prototype = {
   },
 
   drawTheFuckingChart: function(rawData, divID){
-
+  
     getLabels = function(rawData){
-    console.log(rawData)
-      var labels
-      for (var i = 0; i < rawData.length; i++){
-        console.log(rawData[i])
-        labels += rawData[i].updated_at;
+      var labels = [];
+      var tests = rawData.tests 
+      for (var i = 0; i < tests.length; i++){
+        labels.push(tests[i].updated_at.slice(0,10));
       }
       return labels;
     }
@@ -33,26 +32,18 @@ ReddyReader.WPMHistoryChart.prototype = {
 
           datasets: [
               {
-                  label: "My First dataset",
+                  label: "Words Per Minute",
                   fillColor: "rgba(220,220,220,0.5)",
                   strokeColor: "rgba(220,220,220,0.8)",
                   highlightFill: "rgba(220,220,220,0.75)",
                   highlightStroke: "rgba(220,220,220,1)",
-                  data: [65, 59, 80, 81, 56, 55, 40]
+                  data: rawData.wpms
               },
-              {
-                  label: "My Second dataset",
-                  fillColor: "rgba(151,187,205,0.5)",
-                  strokeColor: "rgba(151,187,205,0.8)",
-                  highlightFill: "rgba(151,187,205,0.75)",
-                  highlightStroke: "rgba(151,187,205,1)",
-                  data: [28, 48, 40, 19, 86, 27, 90]
-              }
+              
           ]
 
       };
 
-      console.log(data)
 
       WPMHistoryChart = new Chart(ctx).Bar(data,{
           //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
