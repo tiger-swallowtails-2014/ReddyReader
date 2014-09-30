@@ -3,6 +3,10 @@
     src: font-url('glyphicons-halflings-regular.svg');
 }
 
+button{
+  display: inline-block;
+}
+
 input {
   color: #000;
 }
@@ -45,7 +49,6 @@ body {
   
   .bookinfo{
     line-height: .8em;
-   
   }
 
   .img-thumbnail{
@@ -56,15 +59,3 @@ body {
     font-style: bold;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> fixed JS, styled working carousel in user profile
