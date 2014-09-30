@@ -3,6 +3,10 @@
     src: font-url('glyphicons-halflings-regular.svg');
 }
 
+input {
+  color: #000;
+}
+
 body {
   background-color: $background;
   color: $text_and_outlines;
