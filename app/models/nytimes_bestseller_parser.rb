@@ -1,8 +1,4 @@
-require 'uri'
-require 'httparty'
-require 'json'
-
-class NYTimesBestsellerParser
+module NytimesBestsellerParser
   def self.get_bestseller_titles
     json_response = HTTParty.get(build_search_url)
     return [] unless json_response.parsed_response["results"]
@@ -27,4 +23,3 @@ class NYTimesBestsellerParser
     end
 end
 
-NYTimesBestsellerParser.get_bestsellers

@@ -1,8 +1,4 @@
-require 'uri'
-require 'httparty'
-require 'json'
-
-class GoogleBooksParser
+module GoogleBooksParser
   def self.get_books(search_term)
     json_response = HTTParty.get(build_search_url(search_term))
     return [] unless json_response.parsed_response["items"]
