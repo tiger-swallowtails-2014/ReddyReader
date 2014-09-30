@@ -39,3 +39,32 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+
+#profile_lightbox{
+  color: $background;
+  
+  .bookinfo{
+    line-height: .8em;
+   
+  }
+
+  .img-thumbnail{
+    height: 100px;
+  }
+
+  #wpm{
+    font-style: bold;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> fixed JS, styled working carousel in user profile

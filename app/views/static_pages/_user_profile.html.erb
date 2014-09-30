@@ -3,17 +3,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="profile_lightbox_label">profile</h4>
+        <h3 class="modal-title" id="profile_lightbox_label"><%= current_user.username %></h3>
       </div>
       <div class="modal-body">
-          <h1><%= current_user.username %></h1>
-          Your WPM: <%= current_user.recent_wpm %>
+        <% if current_user %>
+          <h4 id="wpm">Your WPM: <%= current_user.recent_wpm %></h4>
+
+
+          <p>Your recent books:</p>
           <div style="display:none" id="userbookdisplay">
           <%= render partial: "book_carousel", locals: { carousel_id: "user_books_carousel" } %>
           </div>
+        <% end %>
       </div>
-
-
     
     </div>
   </div>
