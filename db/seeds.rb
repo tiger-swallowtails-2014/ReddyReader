@@ -10,8 +10,4 @@ Paragraph.create(content: "As an epicure snatches a taste of every dish which is
 Paragraph.create(content: "As soon as he got home, Utterson sat down and wrote to Jekyll, complaining of his exclusion from the house, and asking the cause of this unhappy break with Lanyon; and the next day brought him a long answer, often very pathetically worded, and sometimes darkly mysterious in drift. The quarrel with Lanyon was incurable. 'I do not blame our old friend,' Jekyll wrote, 'but I share his view that we must never meet. I mean from henceforth to lead a life of extreme seclusion; you must not be surprised, nor must you doubt my friendship, if my door is often shut even to you. You must suffer me to go my own dark way. I have brought on myself a punishment and a danger that I cannot name. If I am the chief of sinners, I am the chief of sufferers also. I could not think that this earth contained a place for sufferings and terrors so unmanning; and you can do but one thing, Utterson, to lighten this destiny, and that is to respect my silence.'")
 
 
-bestsellers = NytimesBestsellerParser.get_bestseller_titles
 
-bestsellers.each do |book|
-  GoogleBooksParser.get_books(book).first.save
-end
