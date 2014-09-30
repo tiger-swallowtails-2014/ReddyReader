@@ -6,9 +6,10 @@
         <h3 class="modal-title" id="profile_lightbox_label"><%= current_user.username %></h3>
       </div>
       <div class="modal-body">
+      
         <% if current_user %>
           <h4 id="wpm">Your WPM: <%= current_user.recent_wpm %></h4>
-
+          <canvas id="WPMHistoryChart" width="200" height="200"></canvas>
 
           <p>Your recent books:</p>
           <div style="display:none" id="userbookdisplay">
