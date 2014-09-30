@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require mustache
 //= require bootstrap
+//= require bootstrap_validator
 //= require index
 //= require_tree .
