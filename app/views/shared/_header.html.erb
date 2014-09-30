@@ -14,6 +14,9 @@
     <%= button_to "Retest WPM", "/speed_test", method: :get, class: "btn btn-primary" %>
 >>>>>>> created partial view for user profile
   <%= button_to "Logout", "/logout", method: :get, class: "btn btn-primary" %>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#profile_lightbox">
+    My Profile
+  </button>
 <% else %>
   <button id="modal_login" class="btn btn-primary" data-toggle="modal" data-target="#login_lightbox">
     Login
