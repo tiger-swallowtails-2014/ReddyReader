@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="register_lightbox_label">Register</h4>
       </div>
       <div class="modal-body">
-        <%= form_tag '/register', method: :post, role: "form" do %>
+        <%= form_tag '/register', method: :post, role: "form", id: "register_form" do %>
           <div class="form-group">
             <%= text_field_tag :username, nil, placeholder: "Username", class: "form-control" %>
           </div>
