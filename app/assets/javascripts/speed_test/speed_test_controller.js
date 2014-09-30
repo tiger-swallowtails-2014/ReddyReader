@@ -25,6 +25,6 @@ ReddyReader.SpeedTestController.prototype = {
 
   displaySpeedTestResults: function(results) {
     this.resultsWidget.displaySpeedTestResults(results);
-    this.randomBooksWidget.getRandomBooks(results.wpm);
+    this.randomBooksWidget.getRandomBooks(results.time_per_page);
   }
 }
