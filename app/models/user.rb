@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
   
   validates_presence_of :username
   validates_presence_of :password_digest, on: :create
-
+  
+  def recent_wpm
+    test = self.reading_tests.order(created_at: :desc).first
+    test.wpm if test
+  end
 end

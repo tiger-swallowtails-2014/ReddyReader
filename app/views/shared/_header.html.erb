@@ -2,10 +2,10 @@
   <%= flash[:error] %>
 <% end %>
 <h1 id="logo" class="text-left">ReddyReader</h1>
-<% if current_user %>
-  <% if current_user.reading_tests.first %>
-    <h3>Your WPM: <%= recent_wpm %></h3>
-    <%= button_to "Retest WPM", "/speed_test", method: :get, class: "btn btn-primary" %>
+<% if current_user  %>
+  <% if current_user.recent_wpm %>
+    <h3>Your WPM: <%= current_user.recent_wpm %></h3>
+    <button class="btn btn-primary">Retest WPM</button>
   <% end %>
   <%= button_to "Logout", "/logout", method: :get, class: "btn btn-primary" %>
 <% else %>

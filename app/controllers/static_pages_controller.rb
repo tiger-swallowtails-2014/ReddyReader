@@ -8,34 +8,17 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test
-    session[:image_url] = params[:image_url]
-    session[:title] = params[:title]
-    session[:author] = params[:author]
-    session[:page_count] = params[:page_count].to_i
-
     paragraph = Paragraph.all.sample
+    book = Book.create(image_url: params[:image_url], title: params[:title], page_count: params[:page_count].to_i, author: params[:author])
+    current_user.books << book if current_user
     session[:paragraph_id] = paragraph.id 
-
     render json: {content:paragraph.content}.to_json
   end
 
   def speed_test_result
-    puts "TIME FROM PARAMS"
-    p params[:time]
-
-    book = Book.create(image_url: session[:image_url], title: session[:title], page_count: session[:page_count], author: session[:author])
-
-    reading_test = ReadingTest.create( time_elapsed: params[:time], paragraph_id: session[:paragraph_id], book_id: book.id)
-
-
-    if @current_user
-      reading_test.user_id << current_user.id
-      user.books << book
-    end
-
-    p reading_test
-
-    render json: {wpm: reading_test.wpm, result: reading_test.time_to_read, title: book.title, time_per_page: reading_test.time_per_page}.to_json
+    reading_test = ReadingTest.create( time_elapsed: params[:time], paragraph_id: session[:paragraph_id], book_id: recent_book.id)
+    current_user.reading_tests << reading_test if current_user
+    render json: {wpm: reading_test.wpm, result: reading_test.time_to_read, title: recent_book.title, time_per_page: reading_test.time_per_page}.to_json
   end
 
   def random_book_display

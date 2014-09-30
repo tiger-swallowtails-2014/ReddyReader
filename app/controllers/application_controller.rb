@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   def current_user
    @current_user ||=   User.where(id: session[:user_id]).first if session[:user_id]
   end
+  
+  def recent_book
+    @recent_book ||= Book.order(created_at: :desc).first
+  end
 
   helper_method :current_user
+  helper_method :recent_book
 end
