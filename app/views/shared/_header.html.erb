@@ -2,11 +2,17 @@
   <%= flash[:error] %>
 <% end %>
 <h1 id="logo" class="text-left">ReddyReader</h1>
+<<<<<<< HEAD
 <% if current_user  %>
   <% if current_user.recent_wpm %>
     <h3>Your WPM: <%= current_user.recent_wpm %></h3>
     <button class="btn btn-primary">Retest WPM</button>
   <% end %>
+=======
+<% if current_user %>
+    <h3>Your WPM: <%= recent_wpm %></h3>
+    <%= button_to "Retest WPM", "/speed_test", method: :get, class: "btn btn-primary" %>
+>>>>>>> created partial view for user profile
   <%= button_to "Logout", "/logout", method: :get, class: "btn btn-primary" %>
 <% else %>
   <button id="modal_login" class="btn btn-primary" data-toggle="modal" data-target="#login_lightbox">
