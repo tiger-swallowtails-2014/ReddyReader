@@ -8,10 +8,10 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test
-    paragraph = Paragraph.all.sample
-    book = Book.create(image_url: params[:image_url], title: params[:title], page_count: params[:page_count].to_i, author: params[:author])
+    paragraph = Paragraph.where(difficulty: params[:difficulty]).sample
+    book = Book.create(book_params)
     current_user.books << book if current_user
-    session[:paragraph_id] = paragraph.id 
+    session[:paragraph_id] = paragraph.id
     render json: {content:paragraph.content}.to_json
   end
 
@@ -24,5 +24,11 @@ class StaticPagesController < ApplicationController
   def random_book_display
     random_books = Book.limit(12).order("RANDOM()")
     render json: random_books.to_json
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :author, :image_url, :isbn, :page_count)
   end
 end
