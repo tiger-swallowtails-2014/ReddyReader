@@ -15,11 +15,8 @@ ReddyReader.RandomBooksGrabber.prototype =	{
 
 	addWPMToBooks: function(books, time_per_page) {
 		for(var i = 0; i < books.length; i++) {
-			console.log(books[i])
-			console.log(books[i].page_count)
-			console.log(time_per_page)
-
 			books[i].timeToRead = ((books[i].page_count * time_per_page)/60).toFixed(2);
+			//in hours
 		}
 		return books;
 	}
