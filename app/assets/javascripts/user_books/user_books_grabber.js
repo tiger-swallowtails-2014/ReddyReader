@@ -1,6 +1,6 @@
 ReddyReader.UserBooksGrabber = function(displayWidget) {
   this.displayWidget = displayWidget;
-  this.getUserBooks();
+  //this.getUserBooks();
 }
 
 ReddyReader.UserBooksGrabber.prototype =  {
