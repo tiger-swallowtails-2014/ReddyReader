@@ -18,7 +18,6 @@ class ReadingTest < ActiveRecord::Base
     return  ((time_per_page * self.book.page_count))/60
     #in minutes
   end
-
-
+  
 end
 
