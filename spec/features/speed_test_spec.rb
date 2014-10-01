@@ -4,14 +4,13 @@ describe "Speed test" do
   before(:each) do
     visit '/'
     fill_in('searchfield', :with => 'Game of Thrones')
-    sleep 1.seconds
     wait_for_ajax
     first('.book').click
     wait_for_ajax
     click_button 'Done'
   end
 
-	it "displays a block of text when I click the Start button" do
+	xit "displays a block of text when I click the Start button" do
 		click_button 'start'
     wait_for_ajax
 		expect(page).to have_css('#testparagraph')
