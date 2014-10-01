@@ -58,8 +58,9 @@ input {
 }
 
 .modal-content{
+  color: $text_and_outlines;
   background-color: $background;
-  margin-bottom: 1em;
+  padding-bottom: 1em;
   
   .modal-header{
     background-color: #000000;
@@ -68,7 +69,8 @@ input {
   }
 
   .bookinfo{
-    line-height: .8em;
+    height: 120px;
+    line-height: .9em;
   }
 
   .img-thumbnail{
