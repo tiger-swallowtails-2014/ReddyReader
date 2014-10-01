@@ -13,6 +13,7 @@ ReddyReader.SpeedTestView.prototype = {
   handleStartClick: function() {
     this.$speedTest.find('#testparagraph').slideDown();
     this.$speedTest.find("#start").hide();
+    this.$speedTest.find("#skip").hide();
     this.$speedTest.find('#done').show();
     this.controller.startSpeedTest();
   },
