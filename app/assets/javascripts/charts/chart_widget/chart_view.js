@@ -1,14 +1,14 @@
-ReddyReader.BestsellersView = function(containerSelector, chartID) {
+ReddyReader.ChartView = function(containerSelector, chartID, chartTemplateID) {
   this.$chartContainer = $(containerSelector);
+  this.chartTemplate = $(chartTemplateID).html();
   this.chartID = chartID;
   this.createCanvas(400, 400);
 }
 
-ReddyReader.BestsellersView.prototype = {
+ReddyReader.ChartView.prototype = {
   createCanvas: function(width, height) {
     var data = {chartID: this.chartID, width: width, height: height};
-    var chartHTML = $("#chart_template").html();
-    this.$chartContainer.append(Mustache.render(chartHTML, data));
+    this.$chartContainer.append(Mustache.render(this.chartTemplate, data));
   },
 
   createChart: function(labels, data) {
@@ -25,7 +25,6 @@ ReddyReader.BestsellersView.prototype = {
         }
       ]
     };
-
     var context = $("#" + this.chartID).get(0).getContext("2d");
     new Chart(context).Bar(data, this.chartOptions);
   },

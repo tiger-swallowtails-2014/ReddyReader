@@ -61,6 +61,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
+  config.before(:each) do
+    # allow(GoogleBooksParser).to receive(:get_books).and_return(create(:book))
+  end
+
   config.before(:all) do
     DatabaseCleaner.start
     Rails.application.load_seed

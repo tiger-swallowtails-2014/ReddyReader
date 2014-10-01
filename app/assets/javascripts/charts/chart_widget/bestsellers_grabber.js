@@ -31,8 +31,8 @@ ReddyReader.BestsellersGrabber.prototype = {
     var readingTimes = [];
     var wordsPerHour = this.speedTestResults.wpm * 60;
     for(var i = 0; i < data.length; i++) {
-      var pageCount = data[i].page_count * 250;
-      readingTimes[i] = (pageCount / wordsPerHour).toPrecision(1);
+      var wordCount = data[i].page_count * 250;
+      readingTimes[i] = (wordCount / wordsPerHour).toFixed(1);
     }
     return readingTimes;
   },
@@ -42,6 +42,6 @@ ReddyReader.BestsellersGrabber.prototype = {
     for(var i = 0; i < readingTimes.length; i++) {
       readingTime += parseFloat(readingTimes[i]);
     }
-    return readingTime.toPrecision(2);
+    return readingTime.toFixed(1);
   }
 }
