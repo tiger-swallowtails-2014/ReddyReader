@@ -17,10 +17,6 @@
           </div>
           
           <% if current_user.from_goodreads? %>
-            <% if current_user.from_goodreads? %>
-              <%= button_to "SHELVES", "/shelves", method: :get, class: "btn btn-primary" %>
-            <% end %>
-            
             <p>Your Goodreads 'To-Read' Shelf:</p>
             <div style="display:none" id="toreaddisplay">
             <%= render partial: "book_carousel", locals: { carousel_id: "to_read_carousel" } %>

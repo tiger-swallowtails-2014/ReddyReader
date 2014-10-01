@@ -47,7 +47,7 @@ class StaticPagesController < ApplicationController
       end
       render json: {books: books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
     else
-      render nothing: true
+      render json: {books: [], time_per_page: 0}.to_json
     end
   end
 
