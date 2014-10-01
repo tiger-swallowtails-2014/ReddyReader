@@ -27,13 +27,13 @@ ReddyReader.SpeedTest.prototype = {
   stopTimer: function() {
     var elapsedTime = new Date().getTime() - this.startTime;
 
-    if(elapsedTime > 2000) {
-      this.sendResults(elapsedTime);
-      return true;
-    }
-    else {
-      return false;
-    }
+    // if(elapsedTime > 5000) {
+    this.sendResults(elapsedTime);
+    return true;
+    // }
+    // else {
+    //   return false;
+    // }
   },
 
   sendResults: function(elapsedTime) {
