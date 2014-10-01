@@ -4,7 +4,7 @@ ReddyReader.WPMHistoryChart = function(divID){
 }
 
 ReddyReader.WPMHistoryChart.prototype = {
-  
+
   getRawData: function(){
     $.ajax({
       url: '/charts/wpm_history'
@@ -14,7 +14,6 @@ ReddyReader.WPMHistoryChart.prototype = {
   },
 
   drawTheFuckingChart: function(rawData, divID){
-  
     getLabels = function(rawData){
       var labels = [];
       var tests = rawData.tests 
@@ -24,27 +23,29 @@ ReddyReader.WPMHistoryChart.prototype = {
       return labels;
     }
 
-  
-     ctx = document.getElementById(divID).getContext("2d");
-      
-      data = {
-          labels: getLabels(rawData),
+    var chartElem = $("#" + divID)[0];
+    if(!chartElem) return;
+    
+    ctx = chartElem.getContext("2d");
 
-          datasets: [
-              {
-                  label: "Words Per Minute",
-                  fillColor: "rgba(220,220,220,0.5)",
-                  highlightFill: "rgba(220,220,220,0.75)",
-                  highlightStroke: "rgba(220,220,220,1)",
-                  data: rawData.wpms
-              },
-              
-          ]
+    data = {
+      labels: getLabels(rawData),
 
-      };
+      datasets: [
+      {
+        label: "Words Per Minute",
+        fillColor: "rgba(220,220,220,0.5)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data: rawData.wpms
+      },
+
+      ]
+
+    };
 
 
-      WPMHistoryChart = new Chart(ctx).Bar(data,{
+    WPMHistoryChart = new Chart(ctx).Bar(data,{
           //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
           scaleBeginAtZero : true,
 
@@ -65,9 +66,9 @@ ReddyReader.WPMHistoryChart.prototype = {
           //String - A legend template
           legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
-      });
+        });
   }
 
 
 };
- 
+

@@ -1,7 +1,8 @@
 var ReddyReader = {};
 
 $(document).ready(function(){
-  var chartWidgets = [new ReddyReader.Bestsellers("#chart_area", "bestsellers_chart")];
+  var chartWidgets = [new ReddyReader.Charter("#chart_area", "bestsellers_chart", "#bestsellers_chart_template", new ReddyReader.BestsellersGrabber()),
+                      new ReddyReader.Charter("#chart_area", "series_chart", "#series_chart_template", new ReddyReader.SeriesGrabber())];
 
   // create page widgets
   var randomBookCarousel = new ReddyReader.BookCarousel('#random_books_carousel', $('#random_book_template').html());

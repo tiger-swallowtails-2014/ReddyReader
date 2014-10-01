@@ -1,11 +1,11 @@
-ReddyReader.BestsellersController = function(chartView, bestsellersGrabber) {
+ReddyReader.ChartController = function(chartView, chartDataGrabber) {
   this.chartView = chartView;
-  this.bestsellersGrabber = bestsellersGrabber;
+  this.chartDataGrabber = chartDataGrabber;
 }
 
-ReddyReader.BestsellersController.prototype = {
+ReddyReader.ChartController.prototype = {
   displayChart: function(speedTestResults) {
-    this.bestsellersGrabber.getChartData(speedTestResults, this);
+    this.chartDataGrabber.getChartData(speedTestResults, this);
   },
 
   renderChart: function(labels, chartData) {
