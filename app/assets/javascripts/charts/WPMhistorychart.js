@@ -34,9 +34,9 @@ ReddyReader.WPMHistoryChart.prototype = {
       datasets: [
       {
         label: "Words Per Minute",
-        fillColor: "rgba(220,220,220,0.5)",
-        highlightFill: "rgba(220,220,220,0.75)",
-        highlightStroke: "rgba(220,220,220,1)",
+        fillColor: "#FFFFFF",
+        highlightFill: "#FFFFFF",
+        highlightStroke: "#FFFFFF",
         data: rawData.wpms
       },
 
