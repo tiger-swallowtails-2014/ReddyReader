@@ -76,11 +76,12 @@
 </script>
 
 <script id="test_results_template" type="text/template">
-<div id="#testresults"><p>You read {{wpm}} words per minute</p>
-<p>It will take you approximately {{result}} hours to read {{title}}</p>
-<a href="http://www.amazon.com/gp/search?tag=assoc-id-reddy0f-20&index=books&field-title={{title}}&field-author={{author}}" target='_blank'><img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>
+<a href="http://www.amazon.com/gp/search?tag=assoc-id-reddy0f-20&index=books&field-title={{title}}&field-author={{author}}" target='_blank'><img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'></a>
+  <p class='title'>{{title}}</p>
+  <p class='author'>{{author}}</p>
+  <h4>{{result}} hours to read</h4>
+  <p class='page_count'>{{page_count}} pages</p>
 <h5><a href="http://www.amazon.com/gp/search?tag=assoc-id-reddy0f-20&index=books&field-title={{title}}&field-author={{author}}" target='_blank'>Buy This Book!</a></h5>
-</div>
 </script>
 
 <script id="bestsellers_chart_template" type="text/template">
@@ -89,11 +90,11 @@
 </script>
 
 <script id="series_chart_template" type="text/template">
-  <h3>Here's how long it will take you to read some popular series:</h3>
+  <h4>Here's how long it will take you to read some popular series:</h4>
   <canvas id='{{chartID}}' width='{{width}}' height='{{height}}'></canvas>
 </script>
 
 <script id="wpm_comparison_chart_template" type="text/template">
-  <h3>Here's how your reading time compares:</h3>
+  <h4>Here's how your reading time compares:</h4>
   <canvas id='{{chartID}}' width='{{width}}' height='{{height}}'></canvas>
 </script>

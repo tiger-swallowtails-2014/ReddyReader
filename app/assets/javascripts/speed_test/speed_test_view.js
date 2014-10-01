@@ -17,15 +17,15 @@ ReddyReader.SpeedTestView.prototype = {
     this.$speedTest.find('#done').show();
     this.controller.startSpeedTest();
   },
-  
+
   handleSkipClick: function() {
-    this.$speedTest.slideUp("slow");
+    this.$speedTest.hide();
     this.controller.skipSpeedTest();
   },
 
   handleDoneClick: function() {
     if(this.controller.stopSpeedTest()) {
-      this.$speedTest.slideUp("slow");
+      this.$speedTest.hide();
     }
     else {
       //SHOW ERROR
