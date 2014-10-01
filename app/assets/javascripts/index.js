@@ -2,7 +2,8 @@ var ReddyReader = {};
 
 $(document).ready(function(){
   var chartWidgets = [new ReddyReader.Charter("#chart_area", "bestsellers_chart", "#bestsellers_chart_template", new ReddyReader.BestsellersGrabber()),
-                      new ReddyReader.Charter("#chart_area", "series_chart", "#series_chart_template", new ReddyReader.SeriesGrabber())];
+                      new ReddyReader.Charter("#chart_area", "series_chart", "#series_chart_template", new ReddyReader.SeriesGrabber()),
+                      new ReddyReader.Charter("#chart_area", "wpm_comparison_chart", "#wpm_comparison_chart_template", new ReddyReader.WPMsGrabber())];
 
   // create page widgets
   var randomBookCarousel = new ReddyReader.BookCarousel('#random_books_carousel', $('#random_book_template').html());
@@ -21,7 +22,7 @@ $(document).ready(function(){
   new ReddyReader.RegisterFormValidator("#register_form");
 
   new ReddyReader.WPMHistoryChart('WPMHistoryChart');
-  new ReddyReader.WPMComparisonChart('WPMComparisonChart');
+  // new ReddyReader.WPMComparisonChart('WPMComparisonChart');
 
 
   $('#logo').click(function(){
