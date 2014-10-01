@@ -2,11 +2,11 @@ class User < ActiveRecord::Base
   has_secure_password
   has_and_belongs_to_many :books
   has_many :reading_tests
-  
+
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_presence_of :password_digest, on: :create
-  
+
   def recent_wpm
     test = self.reading_tests.last
     test.wpm if test
@@ -15,7 +15,14 @@ class User < ActiveRecord::Base
   def from_goodreads?
     self.provider === "goodreads"
   end
-  
+
+  def get_average_wpm
+    sum = reading_tests.reduce(0) do |sum, test_result|
+      sum + test_result.wpm
+    end
+    sum / reading_tests.count
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -25,12 +32,12 @@ class User < ActiveRecord::Base
       user.password = User.random_password
     end
   end
-  
+
   private
   def self.random_username
     "user#{User.count + 1}"
   end
-  
+
   def self.random_password
     SecureRandom.hex
   end
