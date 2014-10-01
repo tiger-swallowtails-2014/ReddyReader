@@ -28,6 +28,7 @@ class StaticPagesController < ApplicationController
 
   def user_book_display
     if current_user
+      p current_user.books
       render json: {books: current_user.books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
     else
       render nothing: true
