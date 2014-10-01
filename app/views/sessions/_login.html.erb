@@ -16,6 +16,8 @@
             <%= submit_tag "Submit", class: "btn btn-primary" %>
           </div>
           <% end %>
+          <p>OR:</p>
+          <%= button_to "Login with goodreads", "/auth/goodreads", method: :get, class: "btn btn-primary" %>
         </div>
       </div>
     </div>

@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
   post 'register' => 'users#create', as: :register
   
+  get 'auth/:provider/callback' => 'sessions#goodreads', as: :gr_login
+  
 end

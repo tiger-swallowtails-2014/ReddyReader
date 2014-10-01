@@ -17,12 +17,8 @@ class StaticPagesController < ApplicationController
 
   def speed_test_result
     reading_test = ReadingTest.create( time_elapsed: params[:time], paragraph_id: session[:paragraph_id], book_id: recent_book.id)
-
     current_user.reading_tests << reading_test if current_user
-
-
     render json: {author: recent_book.author, image_url: recent_book.image_url, wpm: reading_test.wpm, result: reading_test.time_to_read, title: recent_book.title, time_per_page: reading_test.time_per_page}.to_json
-
   end
 
   def random_book_display
