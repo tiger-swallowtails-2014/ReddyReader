@@ -9,7 +9,8 @@ class StaticPagesController < ApplicationController
 
   def speed_test
     paragraph = Paragraph.where(difficulty: params[:difficulty]).sample
-    book = Book.create(book_params)
+    book = Book.find_by(title: params[:book][:title], author: params[:book][:author])
+    book ||= Book.create(book_params)
     current_user.books << book if current_user
     session[:paragraph_id] = paragraph.id
     render json: {content:paragraph.content}.to_json
