@@ -2,7 +2,7 @@ ReddyReader.ChartView = function(containerSelector, chartID, chartTemplateID) {
   this.$chartContainer = $(containerSelector);
   this.chartTemplate = $(chartTemplateID).html();
   this.chartID = chartID;
-  this.createCanvas(400, 400);
+  this.createCanvas(450, 400);
 }
 
 ReddyReader.ChartView.prototype = {
@@ -17,7 +17,7 @@ ReddyReader.ChartView.prototype = {
       datasets: [
         {
           // label: "My First dataset",
-          fillColor: "rgba(220,220,220,0.5)",
+          fillColor: "#FFFFFF",
           strokeColor: "rgba(220,220,220,0.8)",
           highlightFill: "rgba(220,220,220,0.75)",
           highlightStroke: "rgba(220,220,220,1)",
@@ -34,6 +34,7 @@ ReddyReader.ChartView.prototype = {
   },
 
   chartOptions: {
+    scaleFontColor: "#FFFFFF",
     //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
     scaleBeginAtZero : true,
 
@@ -47,7 +48,7 @@ ReddyReader.ChartView.prototype = {
     scaleGridLineWidth : 1,
 
     //Boolean - If there is a stroke on each bar
-    barShowStroke : true,
+    barShowStroke : false,
 
     //Number - Pixel width of the bar stroke
     barStrokeWidth : 2,

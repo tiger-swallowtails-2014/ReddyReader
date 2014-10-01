@@ -3,9 +3,30 @@
     src: font-url('glyphicons-halflings-regular.svg');
 }
 
-button{
-  display: inline-block;
+nav{
+  padding: 2em 0 2em 0;
+  a{
+    color: $text_and_outlines;
+  }
+ 
+  button{
+    float:right;
+    margin: 0 2px 0 2px;
+  }
 }
+
+.btn-outline {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: $text_and_outlines;
+  color: $text_and_outlines;
+
+  &:hover{
+    color: $importanttext;
+    border-color: $importanttext;
+  }
+}
+
+
 
 input {
   color: #000;
@@ -18,6 +39,7 @@ body {
 
 #logo {
   cursor: pointer;
+  display: inline;
 }
 
 #logo:hover {
