@@ -5,6 +5,10 @@
 
 nav{
   padding: 2em 0 2em 0;
+  margin-bottom: 2em;
+  width: 80%;
+  position: fixed;
+  float: top;
   a{
     color: $text_and_outlines;
   }
