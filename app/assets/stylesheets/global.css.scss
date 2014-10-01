@@ -3,16 +3,27 @@
     src: font-url('glyphicons-halflings-regular.svg');
 }
 
-nav{
-  padding: 2em 0 2em 0;
-  margin-bottom: 2em;
-  width: 80%;
+body {
+  font-family: $font;
+  background-color: $background;
+  color: $text_and_outlines;
+}
+
+#transparent{
+  height: 100px;
+  width: 100%;
+  background-color: #000000;
   position: fixed;
-  float: top;
-  a{
-    color: $text_and_outlines;
-  }
- 
+  opacity: .5;
+  z-index: 1;
+  top: 0;
+}
+
+nav{
+  padding: 2em 4em 4em 4em;
+  width: 100%;
+  z-index: 2;
+
   button{
     float:right;
     margin: 0 2px 0 2px;
@@ -36,10 +47,6 @@ input {
   color: #000;
 }
 
-body {
-  background-color: $background;
-  color: $text_and_outlines;
-}
 
 #logo {
   cursor: pointer;
@@ -48,6 +55,29 @@ body {
 
 #logo:hover {
   color: $importanttext;
+}
+
+.modal-content{
+  background-color: $background;
+  margin-bottom: 1em;
+  
+  .modal-header{
+    background-color: #000000;
+    opacity: .5;
+    z-index: -1;
+  }
+
+  .bookinfo{
+    line-height: .8em;
+  }
+
+  .img-thumbnail{
+    height: 100px;
+  }
+
+  #wpm{
+    font-style: bold;
+  }
 }
 
 #randombookdisplay{
@@ -70,18 +100,3 @@ body {
   text-align: center;
 }
 
-#profile_lightbox{
-  color: $background;
-  
-  .bookinfo{
-    line-height: .8em;
-  }
-
-  .img-thumbnail{
-    height: 100px;
-  }
-
-  #wpm{
-    font-style: bold;
-  }
-}
