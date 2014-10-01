@@ -57,17 +57,21 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = false
 
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :truncation
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
 
-  # config.before(:all) do
-  #   DatabaseCleaner.start
-  #   Rails.application.load_seed
-  # end
-  # config.after(:all) do
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:each) do
+    # allow(GoogleBooksParser).to receive(:get_books).and_return(create(:book))
+  end
+
+  config.before(:all) do
+    DatabaseCleaner.start
+    Rails.application.load_seed
+  end
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
 
   config.infer_base_class_for_anonymous_controllers = false
 

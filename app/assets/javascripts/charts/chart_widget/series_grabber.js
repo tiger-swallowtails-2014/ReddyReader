@@ -46,7 +46,6 @@ ReddyReader.SeriesGrabber.prototype = {
     var titles = this.parseSeriesTitles(data);
     var readingTimes = this.getReadingTimes(data);
     this.controller.renderChart(titles, readingTimes);
-    this.controller.showTotalReadTime(this.getTotalReadTime(readingTimes));
   },
 
   parseSeriesTitles: function(data) {

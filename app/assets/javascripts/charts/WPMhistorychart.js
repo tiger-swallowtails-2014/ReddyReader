@@ -1,5 +1,5 @@
 ReddyReader.WPMHistoryChart = function(divID){
-  this.divID = divID 
+  this.divID = divID
   this.getRawData();
 }
 
@@ -16,7 +16,7 @@ ReddyReader.WPMHistoryChart.prototype = {
   drawTheFuckingChart: function(rawData, divID){
     getLabels = function(rawData){
       var labels = [];
-      var tests = rawData.tests 
+      var tests = rawData.tests
       for (var i = 0; i < tests.length; i++){
         labels.push(tests[i].updated_at.slice(0,10));
       }
@@ -25,7 +25,7 @@ ReddyReader.WPMHistoryChart.prototype = {
 
     var chartElem = $("#" + divID)[0];
     if(!chartElem) return;
-    
+
     ctx = chartElem.getContext("2d");
 
     data = {

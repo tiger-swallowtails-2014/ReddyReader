@@ -19,7 +19,7 @@ class ChartsController < ApplicationController
     if ReadingTest.count == 0
       render json: {user_wpm: 0, avg_wpm: 0}.to_json
     else
-      user_wpm = ReadingTest.last.wpm 
+      user_wpm = ReadingTest.last.wpm
 
       sum = 0
       ReadingTest.all.each do |test|

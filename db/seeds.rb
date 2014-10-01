@@ -6,4 +6,28 @@ Paragraph.create(difficulty: 3, content: "Call me Ishmael. Some years ago--never
 Paragraph.create(difficulty: 4, content: "As an epicure snatches a taste of every dish which is successively brought to table, he not having allowed himself time to enjoy the one before, so have I gone from one subject to another without having discovered what I sought at first, the nature of justice. I left that enquiry and turned away to consider whether justice is virtue and wisdom or evil and folly; and when there arose a further question about the comparative advantages of justice and injustice, I could not refrain from passing on to that. And the result of the whole discussion has been that I know nothing at all. For I know not what justice is, and therefore I am not likely to know whether it is or is not a virtue, nor can I say whether the just man is happy or unhappy.")
 Paragraph.create(difficulty: 5, content: "This is a really complicated piece of text!!!1")
 
-Rake::Task['db:seed:bestsellers'].invoke
+if Rails.env.production?
+  Rake::Task['db:seed:bestsellers'].invoke
+else
+  Book.where.not(bestseller_rank: nil).delete_all
+  Book.create(title: 'Edge of Eternity', author: 'Ken Follett', image_url: 'http://bks2.books.google.com/books?id=FfAiAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 1120, bestseller_rank: 0)
+  Book.create(title: 'Sharp Objects', author: 'Gillian Flynn', image_url: 'http://bks2.books.google.com/books?id=nikRUi7nUj8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 272, bestseller_rank: 1)
+  Book.create(title: 'Personal Finance', author: 'E. Thomas Garman, Raymond Forgue', image_url: 'http://bks2.books.google.com/books?id=uBSl1NR2NHYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 640, bestseller_rank: 2)
+  Book.create(title: 'Outlander', author: 'Diana Gabaldon', image_url: 'http://bks0.books.google.com/books?id=p76ueH9PWJAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 627, bestseller_rank: 3)
+  Book.create(title: 'The Alchemist', author: 'Paulo Coelho', image_url: 'http://bks8.books.google.com/books?id=pTr44Sx6oWQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 208, bestseller_rank: 4)
+  Book.create(title: 'Takedown', author: 'Rick Cowan, Douglas Century', image_url: 'http://bks6.books.google.com/books?id=eJLaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api', page_count: 363, bestseller_rank: 5)
+  Book.create(title: 'Big Little Lies', author: 'Liane Moriarty', image_url: 'http://bks5.books.google.com/books?id=UhQ4AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 416, bestseller_rank: 6)
+  Book.create(title: 'Somewhere Safe with Somebody Good', author: 'Jan Karon', image_url: 'http://bks4.books.google.com/books?id=cxp0AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 528, bestseller_rank: 7)
+  Book.create(title: 'Festive in Death', author: 'J. D. Robb', image_url: 'http://bks1.books.google.com/books?id=VDxBAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 400, bestseller_rank: 8)
+  Book.create(title: 'The Best of Me', author: 'Nicholas Sparks', image_url: 'http://bks2.books.google.com/books?id=ISsOIrR44MkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 304, bestseller_rank: 9)
+  Book.create(title: 'The Outlander Series 7-Book Bundle', author: 'Diana Gabaldon', image_url: 'http://bks2.books.google.com/books?id=Z8LGFPb_hNkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 6096, bestseller_rank: 10)
+  Book.create(title: 'The Golem of Hollywood', author: 'Jonathan Kellerman, Jesse Kellerman', image_url: 'http://bks9.books.google.com/books?id=oeO2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 560, bestseller_rank: 11)
+  Book.create(title: 'This Is Where I Leave You', author: 'Jonathan Tropper', image_url: 'http://bks6.books.google.com/books?id=3jVps2Z9LQcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 352, bestseller_rank: 12)
+  Book.create(title: 'Sycamore Row', author: 'John Grisham', image_url: 'http://bks9.books.google.com/books?id=c9NgOc-cLywC&printsec=frontcover&img=1&zoom=1&source=gbs_api', page_count: 400, bestseller_rank: 13)
+  Book.create(title: 'Private Down Under', author: 'James Patterson, Michael White', image_url: 'http://bks1.books.google.com/books?id=Uk1IAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 384, bestseller_rank: 14)
+  Book.create(title: 'Orphan Train Rider', author: 'Andrea Warren', image_url: 'http://bks4.books.google.com/books?id=5L1jAjMuYuMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 80, bestseller_rank: 15)
+  Book.create(title: 'Raging Heat', author: 'Richard Castle', image_url: 'http://bks0.books.google.com/books?id=7SotBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 304, bestseller_rank: 16)
+  Book.create(title: 'British and Irish Paintings in Public Collections', author: 'Christopher Wright, Catherine May Gordon, Mary Peskett Smith, Paul Mellon Centre for Studies in British Art', image_url: 'http://bks2.books.google.com/books?id=9XNe0mLSJQAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 932, bestseller_rank: 17)
+  Book.create(title: 'All the Light We Cannot See', author: 'Anthony Doerr', image_url: 'http://bks8.books.google.com/books?id=0cH0AAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 544, bestseller_rank: 18)
+  Book.create(title: 'The Paying Guest', author: 'George Gissing', image_url: 'http://bks9.books.google.com/books?id=0-g3AAAAYAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', page_count: 191, bestseller_rank: 19)
+end
