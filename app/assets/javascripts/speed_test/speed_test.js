@@ -35,6 +35,15 @@ ReddyReader.SpeedTest.prototype = {
     //   return false;
     // }
   },
+   
+  skipSpeedTest: function() {
+    this.server.ajax({
+      url: '/skip_speed_test',
+      method: 'get'
+    }).done(function(data){
+      this.sendResults(data.elapsedTime)
+    }.bind(this))
+  },
 
   sendResults: function(elapsedTime) {
     this.server.ajax({

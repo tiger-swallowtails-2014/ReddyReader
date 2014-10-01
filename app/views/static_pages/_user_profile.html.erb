@@ -8,8 +8,10 @@
       <div class="modal-body">
       
         <% if current_user %>
-          <h4 id="wpm">Your WPM: <%= current_user.recent_wpm %></h4>
-          <canvas id="WPMHistoryChart" width="200" height="200"></canvas>
+          <% if current_user.recent_wpm %>
+            <h4 id="wpm">Your WPM: <%= current_user.recent_wpm %></h4>
+            <canvas id="WPMHistoryChart" width="200" height="200"></canvas>
+          <% end %>
 
           <p>Your recent books:</p>
           <div style="display:none" id="userbookdisplay">
