@@ -1,4 +1,5 @@
 class ReadingTest < ActiveRecord::Base
+  validate :validate_wpm
   belongs_to :book
   belongs_to :paragraph
   belongs_to :user
@@ -14,7 +15,7 @@ class ReadingTest < ActiveRecord::Base
     #in minutes
   end
 
-  def  time_to_read
+  def time_to_read
     return  ((time_per_page * self.book.page_count))/60
     #in minutes
   end
@@ -53,6 +54,11 @@ class ReadingTest < ActiveRecord::Base
       sum + test_result.wpm
     end
     sum / ReadingTest.count
+  end
+
+  private
+  def validate_wpm
+    errors.add(:time_elapsed, "Your reading speed seems off...") unless self.wpm < 1500 && self.wpm > 30
   end
 
 end
