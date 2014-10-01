@@ -17,8 +17,12 @@ ReddyReader.SpeedTestView.prototype = {
   },
 
   handleDoneClick: function() {
-    this.$speedTest.slideUp("slow");
-    this.controller.stopSpeedTest();
+    if(this.controller.stopSpeedTest()) {
+      this.$speedTest.slideUp("slow");
+    }
+    else {
+      //SHOW ERROR
+    }
   },
 
   showParagraph: function(paragraph) {

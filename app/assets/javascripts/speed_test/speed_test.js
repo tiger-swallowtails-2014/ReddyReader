@@ -26,7 +26,14 @@ ReddyReader.SpeedTest.prototype = {
 
   stopTimer: function() {
     var elapsedTime = new Date().getTime() - this.startTime;
-    this.sendResults(elapsedTime);
+
+    if(elapsedTime > 2000) {
+      this.sendResults(elapsedTime);
+      return true;
+    }
+    else {
+      return false;
+    }
   },
 
   sendResults: function(elapsedTime) {
