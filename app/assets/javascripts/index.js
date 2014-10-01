@@ -16,6 +16,9 @@ $(document).ready(function(){
   var searchField = new ReddyReader.SearchField('#searchfield', bookSearchCarousel);
   new ReddyReader.LoginFormValidator("#login_form");
   new ReddyReader.RegisterFormValidator("#register_form");
+  
+  new ReddyReader.WPMHistoryChart('WPMHistoryChart');
+  new ReddyReader.WPMComparisonChart('WPMComparisonChart');
 
 
   $('#logo').click(function(){

@@ -14,5 +14,11 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
   post 'register' => 'users#create', as: :register
   get 'auth/:provider/callback' => 'sessions#goodreads', as: :gr_login
+
   get 'charts/bestsellers' => 'charts#bestsellers', as: :bestsellers_chart
+  
+  get 'charts/wpm_history' => 'charts#wpm_history', as: :wpm_history  
+  get 'charts/wpm_comparison' => 'charts#wpm_comparison', as: :wpm_comparison  
+
+
 end

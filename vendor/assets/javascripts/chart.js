@@ -75,7 +75,7 @@
       scaleIntegersOnly: true,
 
       // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-      scaleBeginAtZero: false,
+      scaleBeginAtZero: true,
 
       // String - Scale label font declaration for the scale label
       scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
