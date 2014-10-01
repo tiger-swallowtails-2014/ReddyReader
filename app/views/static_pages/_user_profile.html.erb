@@ -9,12 +9,24 @@
       
         <% if current_user %>
           <h4 id="wpm">Your WPM: <%= current_user.recent_wpm %></h4>
-          <canvas id="WPMHistoryChart" width="200" height="400"></canvas>
+          <canvas id="WPMHistoryChart" width="200" height="200"></canvas>
+          
+          <% if current_user.from_goodreads? %>
+            <%= button_to "SHELVES", "/shelves", method: :get, class: "btn btn-primary" %>
+            
+          <% end %>
 
           <p>Your recent books:</p>
           <div style="display:none" id="userbookdisplay">
           <%= render partial: "book_carousel", locals: { carousel_id: "user_books_carousel" } %>
           </div>
+          
+          <% if current_user.from_goodreads? %>
+            <p>Your Goodreads 'To-Read' Shelf:</p>
+            <div style="display:none" id="toreaddisplay">
+            <%= render partial: "book_carousel", locals: { carousel_id: "to_read_books_carousel" } %>
+          </div>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     self.reading_tests.last.wpm
   end
   
+  def from_goodreads?
+    self.provider === "goodreads"
+  end
+  
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]

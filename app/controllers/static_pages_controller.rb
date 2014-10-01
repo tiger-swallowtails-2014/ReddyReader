@@ -35,6 +35,20 @@ class StaticPagesController < ApplicationController
       render nothing: true
     end
   end
+  
+  def shelves
+    shelves = HTTParty.get('https://www.goodreads.com/shelf/list.xml', :query => {:key => ENV["GR_API_KEY"], :user_id => current_user.uid, :page => 1-3})
+    to_read_shelf = shelves["GoodreadsResponse"]["shelves"]["user_shelf"][2]
+    p shelves
+    to_read_books = HTTParty.get('https://www.goodreads.com/review/list?format=xml&v=2', :query => {:key => ENV["GR_API_KEY"], :id => current_user.uid, :shelf => :to_read, :sort => 'date_updated', :page => 1-3})
+    books = {}
+    to_read_books.each do |book|
+      # books < {title: book[]}
+      # p book["Goodreads"]
+      # p "END THE BOOK"
+    end
+    redirect_to :root
+  end
 
   private
 

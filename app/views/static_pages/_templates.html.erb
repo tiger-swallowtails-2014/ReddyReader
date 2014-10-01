@@ -39,6 +39,20 @@
 {{/books}}
 </script>
 
+<script id="to_read_book_template" type="text/template">
+{{#books}}
+<div class='book col-xs-3 text-center'>
+<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>
+<div class='bookinfo row'>
+<p class='title'>{{title}}</p>
+<p class='author'>{{author}}</p>
+<h4>{{timeToRead}} hours</h4>
+<p class='page_count'>{{page_count}} pages</p>
+</div>
+</div>
+{{/books}}
+</script>
+
 <script id="carousel_indicator_template" type="text/template">
 <li data-target='{{carouselSelector}}' data-slide-to='{{index}}'></li>
 </script>
