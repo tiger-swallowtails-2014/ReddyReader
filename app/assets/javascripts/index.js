@@ -18,6 +18,7 @@ $(document).ready(function(){
   new ReddyReader.RegisterFormValidator("#register_form");
   
   new ReddyReader.WPMHistoryChart('WPMHistoryChart');
+  new ReddyReader.WPMComparisonChart('WPMComparisonChart');
 
 
   $('#logo').click(function(){

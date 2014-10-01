@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 =======
   
   get 'charts/wpm_history' => 'charts#wpm_history', as: :wpm_history  
+  get 'charts/wpm_comparison' => 'charts#wpm_comparison', as: :wpm_comparison  
 
 >>>>>>> made JS work with sample data
 end

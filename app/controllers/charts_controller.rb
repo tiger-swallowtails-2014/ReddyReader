@@ -15,5 +15,22 @@ class ChartsController < ApplicationController
     end
   end
 
+  def wpm_comparison
+    if current_user
+      user_wpm = current_user.reading_tests.last.wpm 
+
+      sum = 0
+      ReadingTest.all.each do |test|
+        sum += test.wpm
+      end
+      avg_wpm = sum/ReadingTest.all.length
+
+      render json: {user_wpm: user_wpm, avg_wpm: avg_wpm}.to_json
+    else
+      render nothing: true
+    end
+
+  end
+
 
 end
