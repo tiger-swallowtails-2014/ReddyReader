@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rake'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '4.1.1'
 gem 'pg'
@@ -13,6 +14,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'oauth'
+gem 'omniauth'
+gem 'omniauth-goodreads'
+gem 'omniauth-oauth'
 
 gem 'httparty'
 

@@ -1,12 +1,25 @@
-<div id="login_lightbox" class="lightbox" style="display: none">
-  <%= form_tag '/login', method: :post do %>
-    <br>
-    <%= text_field_tag :username, nil, placeholder: "Username" %>
-    <br>
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
-    <br>
-    <%= submit_tag "Login" %>
-    <br>
-    <a href="#" class="close">Close</a>
-  <% end %>
+<div class="modal fade" id="login_lightbox" tabindex="-1" role="dialog" aria-labelledby="login_lightbox_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="login_lightbox_label">Login</h4>
+        <div class="modal-body">
+          <%= form_tag '/login', method: :post, role: "form", id: "login_form" do %>
+          <div class="form-group">
+            <%= text_field_tag :username, nil, placeholder: "Username", class: "form-control", name: :username %>
+          </div>
+          <div class="form-group">
+            <%= password_field_tag :password, nil, placeholder: "Password", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= submit_tag "Submit", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+          <p>OR:</p>
+          <%= button_to "Login with goodreads", "/auth/goodreads", method: :get, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

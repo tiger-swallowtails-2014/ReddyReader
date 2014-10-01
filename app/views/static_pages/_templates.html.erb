@@ -25,6 +25,20 @@
 {{/books}}
 </script>
 
+<script id="user_book_template" type="text/template">
+{{#books}}
+<div class='book col-xs-3 text-center'>
+<img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>
+<div class='bookinfo row'>
+<p class='title'>{{title}}</p>
+<p class='author'>{{author}}</p>
+<h4>{{timeToRead}} hours</h4>
+<p class='page_count'>{{page_count}} pages</p>
+</div>
+</div>
+{{/books}}
+</script>
+
 <script id="carousel_indicator_template" type="text/template">
 <li data-target='{{carouselSelector}}' data-slide-to='{{index}}'></li>
 </script>
@@ -48,6 +62,19 @@
 </script>
 
 <script id="test_results_template" type="text/template">
-<p>You read {{wpm}} words per minute</p>
+<div id="#testresults"><p>You read {{wpm}} words per minute</p>
 <p>It will take you approximately {{result}} hours to read {{title}}</p>
+<a href="http://www.amazon.com/gp/search?tag=assoc-id-reddy0f-20&index=books&field-title={{title}}&field-author={{author}}" target='_blank'><img src='{{image_url}}' alt='{{title}} front cover' class='img-thumbnail'>
+<h5><a href="http://www.amazon.com/gp/search?tag=assoc-id-reddy0f-20&index=books&field-title={{title}}&field-author={{author}}" target='_blank'>Buy This Book!</a></h5>
+</div>
+</script>
+
+<script id="bestsellers_chart_template" type="text/template">
+  <h4>It will take you <span class="read_time"></span> hours to read the entire New York Times bestseller list</h4>
+  <canvas id='{{chartID}}' width='{{width}}' height='{{height}}'></canvas>
+</script>
+
+<script id="series_chart_template" type="text/template">
+  <h3>Here's how long it will take you to read some popular series:</h3>
+  <canvas id='{{chartID}}' width='{{width}}' height='{{height}}'></canvas>
 </script>

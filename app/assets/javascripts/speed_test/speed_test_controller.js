@@ -7,8 +7,8 @@ ReddyReader.SpeedTestController = function(speedTest, view, resultsWidget, rando
 }
 
 ReddyReader.SpeedTestController.prototype = {
-  receiveBook: function(book) {
-    this.speedTest.requestSpeedTest(book, this);
+  requestSpeedTest: function(book, difficulty) {
+    this.speedTest.requestSpeedTest(book, difficulty, this);
   },
 
   receiveParagraph: function(paragraph) {
@@ -19,12 +19,12 @@ ReddyReader.SpeedTestController.prototype = {
     this.speedTest.startTimer();
   },
 
-  stopSpeedTest: function(wordCount) {
-    this.speedTest.stopTimer(wordCount);
+  stopSpeedTest: function() {
+    this.speedTest.stopTimer();
   },
 
   displaySpeedTestResults: function(results) {
     this.resultsWidget.displaySpeedTestResults(results);
-    this.randomBooksWidget.getRandomBooks(results.wpm);
+    this.randomBooksWidget.getRandomBooks(results.time_per_page);
   }
 }

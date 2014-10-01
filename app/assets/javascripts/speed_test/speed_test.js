@@ -3,35 +3,36 @@ ReddyReader.SpeedTest = function() {
 }
 
 ReddyReader.SpeedTest.prototype = {
-  requestSpeedTest: function(book, controller) {
+  requestSpeedTest: function(book, difficulty, controller) {
     this.controller = controller;
+    var data = {book: book, difficulty: difficulty};
 
     $.ajax({
       url: '/speed_test',
-      data: book
+      data: data
     }).done(function(serverData) {
       this.handleReceiveSpeedTest(serverData);
     }.bind(this));
   },
 
   handleReceiveSpeedTest: function(serverData) {
-    this.controller.receiveParagraph(serverData.test);
+    this.controller.receiveParagraph(serverData.content);
   },
 
   startTimer: function() {
     this.startTime = new Date().getTime();
   },
 
-  stopTimer: function(wordCount) {
+  stopTimer: function() {
     var elapsedTime = new Date().getTime() - this.startTime;
-    this.sendResults(elapsedTime, wordCount);
+    this.sendResults(elapsedTime);
   },
 
-  sendResults: function(elapsedTime, wordCount) {
+  sendResults: function(elapsedTime) {
     $.ajax({
       url: '/speed_test_result',
       method: "post",
-      data: {"time": elapsedTime, "word_count": wordCount}
+      data: {"time": elapsedTime}
     }).done(this.handleServerResponse.bind(this));
   },
 

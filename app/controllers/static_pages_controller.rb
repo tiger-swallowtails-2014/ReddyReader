@@ -8,39 +8,39 @@ class StaticPagesController < ApplicationController
   end
 
   def speed_test
-    session[:image_url] = params[:image_url]
-    session[:title] = params[:title]
-    session[:author] = params[:author]
-    session[:page_count] = params[:page_count].to_i
-    speed_test = Paragraph.all.sample
-    render json: {test:speed_test.test}.to_json
+    paragraph = Paragraph.where(difficulty: params[:difficulty]).sample
+    book = Book.create(book_params)
+    current_user.books << book if current_user
+    session[:paragraph_id] = paragraph.id
+    render json: {content:paragraph.content}.to_json
   end
 
   def speed_test_result
-    title = session[:title] || "this book"
-    time = params[:time].to_f/1000 #in seconds
-    word_count = params[:word_count].to_i
-    page_count = session[:page_count].to_i
-    @WPM = WpmCalculator.calc_wpm(word_count, time)
-    
-    user = User.get_user(session[:user_id])
-    book = Book.create(image_url: session[:image_url], title: session[:title], page_count: page_count, est_word_count: page_count * 250, author: session[:author])
-    
-    if user
-      User.set_wpm(@WPM, user)
-      user.books << book
-    end
-    
-    time_per_page = WpmCalculator.time_per_page(time, word_count)
-    @result = WpmCalculator.time_to_read(page_count, time_per_page)
-
-    respond_to do |format|
-      format.json {render json: {wpm: @WPM, result: @result, title: title}}
-    end
+    reading_test = ReadingTest.create( time_elapsed: params[:time], paragraph_id: session[:paragraph_id], book_id: recent_book.id)
+    current_user.reading_tests << reading_test if current_user
+    render json: {author: recent_book.author, image_url: recent_book.image_url, wpm: reading_test.wpm, result: reading_test.time_to_read, title: recent_book.title, time_per_page: reading_test.time_per_page}.to_json
   end
 
   def random_book_display
     random_books = Book.limit(12).order("RANDOM()")
     render json: random_books.to_json
   end
+
+  def user_book_display
+    if current_user
+      last_test = current_user.reading_tests.last
+      time_per_page = (last_test ? last_test.time_per_page : 0)
+      render json: {books: current_user.books, time_per_page: time_per_page}.to_json
+    else
+      render nothing: true
+    end
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :author, :image_url, :isbn, :page_count)
+  end
+
+
 end

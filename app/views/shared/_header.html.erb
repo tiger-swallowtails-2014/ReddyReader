@@ -1,12 +1,24 @@
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end %>
+<nav>
 <h1 id="logo" class="text-left">ReddyReader</h1>
-<% if current_user && current_user.wpms.first %>
-  <h3>Your WPM: <%= recent_wpm %></h3>
-  <a href="/speed_test">Retest?</a>
-  <a href="/logout">Logout</a>
-<% else %>
-  <a id="modal_register" href="#">Register</a>
-  <a id="modal_login" href="#">Login</a>
-<% end %>
+    <% if current_user  %>
+      <a href="/logout"><button type="button" class="btn btn-outline">Logout</button></a>
+      <button class="btn btn-outline" data-toggle="modal" data-target="#profile_lightbox">
+        My Profile
+      </button>
+      <% if current_user.recent_wpm %>
+        <button class="btn btn-outline">Retest WPM</button>
+      <% end %>
+   
+    <% else %>
+      <button id="modal_login" class="btn btn-outline" data-toggle="modal" data-target="#login_lightbox">
+        Login
+      </button>
+      <button id="modal_register" class="btn btn-outline" data-toggle="modal" data-target="#register_lightbox">
+        Register
+      </button>
+    <% end %>
+</nav>
+

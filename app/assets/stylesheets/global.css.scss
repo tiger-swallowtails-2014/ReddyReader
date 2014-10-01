@@ -3,6 +3,35 @@
     src: font-url('glyphicons-halflings-regular.svg');
 }
 
+nav{
+  padding: 2em 0 2em 0;
+  a{
+    color: $text_and_outlines;
+  }
+ 
+  button{
+    float:right;
+    margin: 0 2px 0 2px;
+  }
+}
+
+.btn-outline {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: $text_and_outlines;
+  color: $text_and_outlines;
+
+  &:hover{
+    color: $importanttext;
+    border-color: $importanttext;
+  }
+}
+
+
+
+input {
+  color: #000;
+}
+
 body {
   background-color: $background;
   color: $text_and_outlines;
@@ -10,6 +39,7 @@ body {
 
 #logo {
   cursor: pointer;
+  display: inline;
 }
 
 #logo:hover {
@@ -31,17 +61,23 @@ body {
   }
 }
 
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
 
+#profile_lightbox{
+  color: $background;
+  
+  .bookinfo{
+    line-height: .8em;
+  }
 
+  .img-thumbnail{
+    height: 100px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
+  #wpm{
+    font-style: bold;
+  }
+}

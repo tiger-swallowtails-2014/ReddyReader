@@ -1,19 +1,15 @@
-require 'uri'
-require 'httparty'
-require 'json'
-
-class GoogleBooksParser
+module GoogleBooksParser
   def self.get_books(search_term)
     json_response = HTTParty.get(build_search_url(search_term))
     return [] unless json_response.parsed_response["items"]
 
     books = json_response.parsed_response["items"].map do |item|
-      parseBookFromJSON(item["volumeInfo"]) 
+      parseBookFromJSON(item["volumeInfo"])
     end
 
     #only gets books that have page counts
-    books.select do |book| 
-      book 
+    books.select do |book|
+      book
     end
 
   end
@@ -27,10 +23,10 @@ class GoogleBooksParser
       book_data[:image_url] = item_json["imageLinks"]["thumbnail"] if item_json["imageLinks"]
 
         Book.new(book_data) if book_data[:page_count]
-      
+
     end
 
     def self.build_search_url(search_term)
-      URI.escape("https://www.googleapis.com/books/v1/volumes?q=#{search_term}")
+      URI.escape("https://www.googleapis.com/books/v1/volumes?key=#{ENV['BOOKS_API_KEY']}&q=#{search_term}")
     end
 end
