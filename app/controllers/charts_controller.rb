@@ -16,6 +16,10 @@ class ChartsController < ApplicationController
   end
 
   def wpm_comparison
+    p ReadingTest.count
+    p ReadingTest.last
+    p ReadingTest.last.inspect
+    p ReadingTest.last.paragraph.inspect
     if ReadingTest.count == 0
       render json: {user_wpm: 0, avg_wpm: 0}.to_json
     end
