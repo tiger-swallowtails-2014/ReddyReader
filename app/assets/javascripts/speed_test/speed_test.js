@@ -1,5 +1,6 @@
 ReddyReader.SpeedTest = function() {
   this.startTime;
+  this.server = $;
 }
 
 ReddyReader.SpeedTest.prototype = {
@@ -29,7 +30,7 @@ ReddyReader.SpeedTest.prototype = {
   },
 
   sendResults: function(elapsedTime) {
-    $.ajax({
+    this.server.ajax({
       url: '/speed_test_result',
       method: "post",
       data: {"time": elapsedTime}
