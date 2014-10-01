@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
     # redirect_to auth_url
     user = User.find_by(provider: auth["provider"], uid: auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
+    session[:user_to_read] = auth["user_shelves"]
     redirect_to :root
   end
 end
