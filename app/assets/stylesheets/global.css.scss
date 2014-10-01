@@ -7,6 +7,7 @@ body {
   font-family: $font;
   background-color: $background;
   color: $text_and_outlines;
+  background-image: $texture;
 }
 
 #transparent{
@@ -15,8 +16,11 @@ body {
   background-color: #000000;
   position: fixed;
   opacity: .5;
-  z-index: 1;
-  top: 0;
+  margin-bottom: 3em;
+
+  a,button{
+    z-index: 2;
+  }
 }
 
 nav{
@@ -51,6 +55,7 @@ input {
 #logo {
   cursor: pointer;
   display: inline;
+  color: #FFFFFF;
 }
 
 #logo:hover {
@@ -60,6 +65,7 @@ input {
 .modal-content{
   color: $text_and_outlines;
   background-color: $background;
+  background-image: $texture;
   padding-bottom: 1em;
   
   .modal-header{
