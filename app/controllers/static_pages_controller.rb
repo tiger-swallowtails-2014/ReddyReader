@@ -50,6 +50,12 @@ class StaticPagesController < ApplicationController
       render json: {books: [], time_per_page: 0}.to_json
     end
   end
+  
+  def skip_speed_test
+    test = current_user.reading_tests.last
+    session[:paragraph_id] = test.paragraph.id
+    render json: {elapsedTime: test.time_elapsed}.to_json
+  end
 
   private
 

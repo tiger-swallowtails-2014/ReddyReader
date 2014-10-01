@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get 'charts/wpm_history' => 'charts#wpm_history', as: :wpm_history
   get 'charts/wpms' => 'charts#wpms', as: :wpms
 
-  get 'shelves' => 'static_pages#shelves'
+  get 'shelves' => 'static_pages#shelves', as: :shelves
+  get 'skip_speed_test' => 'static_pages#skip_speed_test', as: :skip_speed_test
 end
