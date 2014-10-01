@@ -3,10 +3,10 @@ describe("Speed Test specs", function(){
     speedTest = new ReddyReader.SpeedTest();
   });
 
-  it("recieves a paragraph to display from the server", function(){
-    var speedTest = new ReddyReader.SpeedTest();
+  // it("recieves a paragraph to display from the server", function(){
+  //   var speedTest = new ReddyReader.SpeedTest();
 
-  });
+  // });
 
   it("starts a timer",function() {
     spyOn(Date.prototype, "getTime").and.returnValue(12345)
