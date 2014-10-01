@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
+  validates_numericality_of :page_count, less_than_or_equal_to: 2000
   validates_uniqueness_of :title, on: :save
   validates_presence_of :title, :page_count
 

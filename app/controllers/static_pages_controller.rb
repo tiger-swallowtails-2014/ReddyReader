@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
   end
 
   def random_book_display
-    random_books = Book.limit(12).order("RANDOM()")
+    random_books = Book.where(bestseller_rank: nil).limit(12).order("RANDOM()")
     render json: random_books.to_json
   end
 
@@ -35,7 +35,7 @@ class StaticPagesController < ApplicationController
       render nothing: true
     end
   end
-  
+
   def shelves
     if current_user
       all_books = HTTParty.get('https://www.goodreads.com/review/list?format=xml&v=2', :query => {:key => ENV["GR_API_KEY"], :id => current_user.uid, :sort => 'date_updated', :page => 1-3})["GoodreadsResponse"]["reviews"]["review"]
