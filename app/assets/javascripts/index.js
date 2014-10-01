@@ -9,6 +9,7 @@ $(document).ready(function(){
   var userBooksCarousel = new ReddyReader.BookCarousel('#user_books_carousel', $('#user_book_template').html());
   var userBooksGrabber = new ReddyReader.UserBooksGrabber(userBooksCarousel);
   var toReadCarousel = new ReddyReader.BookCarousel('#to_read_carousel', $('#to_read_template').html());
+  var toReadGrabber = new ReddyReader.GoodreadsGrabber(toReadCarousel);
 
   var testResults = new ReddyReader.TestResults('#resultsarea', chartWidgets);
   var randomBooksGrabber = new ReddyReader.RandomBooksGrabber(randomBookCarousel);
