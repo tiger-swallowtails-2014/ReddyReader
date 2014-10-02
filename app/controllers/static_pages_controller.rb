@@ -38,7 +38,7 @@ class StaticPagesController < ApplicationController
   end
 
   def shelves
-    if current_user && current_user.recent_wpm
+    if current_user && current_user.from_goodreads? && current_user.recent_wpm
       all_books = HTTParty.get('https://www.goodreads.com/review/list?format=xml&v=2', :query => {:key => ENV["GR_API_KEY"], :id => current_user.uid, :sort => 'date_updated', :page => 1-3})["GoodreadsResponse"]["reviews"]["review"]
       books = []
       all_books.each do |review|
