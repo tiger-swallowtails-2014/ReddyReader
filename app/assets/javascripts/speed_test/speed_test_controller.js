@@ -18,9 +18,13 @@ ReddyReader.SpeedTestController.prototype = {
   startSpeedTest: function() {
     this.speedTest.startTimer();
   },
+  
+  skipSpeedTest: function() {
+    this.speedTest.skipSpeedTest();
+  },
 
   stopSpeedTest: function() {
-    this.speedTest.stopTimer();
+    return this.speedTest.stopTimer();
   },
 
   displaySpeedTestResults: function(results) {

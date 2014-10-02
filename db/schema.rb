@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20140930022831) do
     t.string   "title",                       null: false
     t.string   "author"
     t.string   "image_url",                   null: false
-    t.string   "isbn"
     t.integer  "page_count",      default: 0, null: false
     t.integer  "bestseller_rank"
     t.datetime "created_at"

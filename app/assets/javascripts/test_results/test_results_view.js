@@ -4,8 +4,8 @@ ReddyReader.TestResultsView = function(testResultsSelector) {
 
 ReddyReader.TestResultsView.prototype = {
   showResults: function(result) {
-    $('#resultsarea').append(Mustache.render($('#test_results_template').html(), result));
+    $("#wpm_result").text(result.wpm);
+    $('#testresults').append(Mustache.render($('#test_results_template').html(), result));
     $('#resultsarea').show();
-    $('#WPMComparisonChart').show();
   }
 }

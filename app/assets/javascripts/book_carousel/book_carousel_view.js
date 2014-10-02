@@ -94,5 +94,3 @@ ReddyReader.BookCarouselView.prototype = {
     }
   }
 }
-
-

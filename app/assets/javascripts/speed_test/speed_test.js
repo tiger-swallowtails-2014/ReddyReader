@@ -1,5 +1,6 @@
 ReddyReader.SpeedTest = function() {
   this.startTime;
+  this.server = $;
 }
 
 ReddyReader.SpeedTest.prototype = {
@@ -25,11 +26,27 @@ ReddyReader.SpeedTest.prototype = {
 
   stopTimer: function() {
     var elapsedTime = new Date().getTime() - this.startTime;
+
+    // if(elapsedTime > 5000) {
     this.sendResults(elapsedTime);
+    return true;
+    // }
+    // else {
+    //   return false;
+    // }
+  },
+   
+  skipSpeedTest: function() {
+    this.server.ajax({
+      url: '/skip_speed_test',
+      method: 'get'
+    }).done(function(data){
+      this.sendResults(data.elapsedTime)
+    }.bind(this))
   },
 
   sendResults: function(elapsedTime) {
-    $.ajax({
+    this.server.ajax({
       url: '/speed_test_result',
       method: "post",
       data: {"time": elapsedTime}

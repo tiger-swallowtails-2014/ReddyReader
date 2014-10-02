@@ -1,16 +1,13 @@
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end %>
-<nav>
+<nav class="navbar" id="transparent">
 <h1 id="logo" class="text-left">ReddyReader</h1>
     <% if current_user  %>
       <a href="/logout"><button type="button" class="btn btn-outline">Logout</button></a>
       <button class="btn btn-outline" data-toggle="modal" data-target="#profile_lightbox">
         My Profile
       </button>
-      <% if current_user.recent_wpm %>
-        <button class="btn btn-outline">Retest WPM</button>
-      <% end %>
    
     <% else %>
       <button id="modal_login" class="btn btn-outline" data-toggle="modal" data-target="#login_lightbox">

@@ -9,7 +9,8 @@ class StaticPagesController < ApplicationController
 
   def speed_test
     paragraph = Paragraph.where(difficulty: params[:difficulty]).sample
-    book = Book.create(book_params)
+    book = Book.find_by(title: params[:book][:title], author: params[:book][:author])
+    book ||= Book.create(book_params)
     current_user.books << book if current_user
     session[:paragraph_id] = paragraph.id
     render json: {content:paragraph.content}.to_json
@@ -22,7 +23,7 @@ class StaticPagesController < ApplicationController
   end
 
   def random_book_display
-    random_books = Book.limit(12).order("RANDOM()")
+    random_books = Book.where(bestseller_rank: nil).limit(12).order("RANDOM()")
     render json: random_books.to_json
   end
 
@@ -34,6 +35,27 @@ class StaticPagesController < ApplicationController
     else
       render nothing: true
     end
+  end
+
+  def shelves
+    if current_user
+      all_books = HTTParty.get('https://www.goodreads.com/review/list?format=xml&v=2', :query => {:key => ENV["GR_API_KEY"], :id => current_user.uid, :sort => 'date_updated', :page => 1-3})["GoodreadsResponse"]["reviews"]["review"]
+      books = []
+      all_books.each do |review|
+        if review["shelves"]["shelf"]["name"] === "to-read"
+          books << {title: review["book"]["title"], author: review["book"]["authors"]["author"]["name"], image_url: review["book"]["image_url"], page_count: review["book"]["num_pages"]}
+        end
+      end
+      render json: {books: books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
+    else
+      render json: {books: [], time_per_page: 0}.to_json
+    end
+  end
+  
+  def skip_speed_test
+    test = current_user.reading_tests.last
+    session[:paragraph_id] = test.paragraph.id
+    render json: {elapsedTime: test.time_elapsed}.to_json
   end
 
   private
