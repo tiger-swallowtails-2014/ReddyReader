@@ -41,15 +41,15 @@ ReddyReader.SpeedTest.prototype = {
       url: '/skip_speed_test',
       method: 'get'
     }).done(function(data){
-      this.sendResults(data.elapsedTime)
+      this.sendResults(data.elapsedTime, false)
     }.bind(this))
   },
 
-  sendResults: function(elapsedTime) {
+  sendResults: function(elapsedTime, give_user_wpm) {
     this.server.ajax({
       url: '/speed_test_result',
       method: "post",
-      data: {"time": elapsedTime}
+      data: {"time": elapsedTime, "give_user_wpm": true || give_user_wpm}
     }).done(this.handleServerResponse.bind(this));
   },
 

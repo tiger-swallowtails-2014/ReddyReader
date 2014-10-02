@@ -7,7 +7,7 @@ body {
   font-family: $font;
   background-color: $background;
   color: $text_and_outlines;
-  background-image: $texture;
+  background-image: url('txture.png');
 }
 
 #transparent{
@@ -15,7 +15,7 @@ body {
   width: 100%;
   background-color: transparentize(#000000, 0.5);
   position: fixed;
- 
+
   margin-bottom: 3em;
 
   a,button{
@@ -65,9 +65,9 @@ input {
 .modal-content{
   color: $text_and_outlines;
   background-color: $background;
-  background-image: $texture;
+  background-image: url('txture.png');
   padding-bottom: 1em;
-  
+
   .modal-header{
     background-color: transparentize(#000000, 0.5);
   }
@@ -106,3 +106,11 @@ input {
   text-align: center;
 }
 
+small.help-block {
+  font-size: 1.2em !important;
+  color: #e74c3c !important;
+}
+
+.navbar button {
+  margin-left: 10px;
+}

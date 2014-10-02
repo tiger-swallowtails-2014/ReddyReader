@@ -5,11 +5,6 @@ ReddyReader.FormValidator = function(formSelector, validations) {
 ReddyReader.LoginFormValidator = function(loginFormSelector) {
   var validations = {
     message: 'This value is not valid',
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
     fields: {
       username: {
         message: 'The username is not valid',
@@ -36,7 +31,7 @@ ReddyReader.LoginFormValidator = function(loginFormSelector) {
           },
           stringLength: {
             min: 8,
-            message: 'The password must be more than 8 30 characters long'
+            message: 'The password must be more than 8 and 30 characters long'
           }
         }
       }
