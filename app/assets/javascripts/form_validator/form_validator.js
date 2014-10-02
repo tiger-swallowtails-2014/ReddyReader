@@ -31,7 +31,7 @@ ReddyReader.LoginFormValidator = function(loginFormSelector) {
           },
           stringLength: {
             min: 8,
-            message: 'The password must be more than 8 30 characters long'
+            message: 'The password must be more than 8 and 30 characters long'
           }
         }
       }
