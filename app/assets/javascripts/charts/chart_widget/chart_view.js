@@ -3,7 +3,6 @@ ReddyReader.ChartView = function(containerSelector, chartID, chartTemplateID) {
   this.chartTemplate = $(chartTemplateID).html();
   this.chartID = chartID;
   this.createCanvas(800, 500);
-  this.resizeChart();
 }
 
 ReddyReader.ChartView.prototype = {
