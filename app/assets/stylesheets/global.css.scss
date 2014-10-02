@@ -7,7 +7,7 @@ body {
   font-family: $font;
   background-color: $background;
   color: $text_and_outlines;
-  background-image: $texture;
+  background-image: url('txture.png');
 }
 
 #transparent{
@@ -65,7 +65,7 @@ input {
 .modal-content{
   color: $text_and_outlines;
   background-color: $background;
-  background-image: $texture;
+  background-image: url('txture.png');
   padding-bottom: 1em;
 
   .modal-header{
