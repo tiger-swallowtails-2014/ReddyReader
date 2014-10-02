@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
   get 'shelves' => 'static_pages#shelves', as: :shelves
   get 'skip_speed_test' => 'static_pages#skip_speed_test', as: :skip_speed_test
+  get 'all_gr_books' => 'static_pages#all_gr_books', as: :all_gr_books
 end

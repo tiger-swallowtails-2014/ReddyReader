@@ -52,7 +52,7 @@ describe("Speed Test specs", function(){
     expect(speedTest.server.ajax).toHaveBeenCalledWith({
       url: "/speed_test_result",
       method: "post",
-      data: {"time": 12345}
+      data: {"time": 12345, "give_user_wpm": true || give_user_wpm}
     })
     expect(speedTest.handleServerResponse.bind).toHaveBeenCalledWith(speedTest);
     expect(promise.done).toHaveBeenCalledWith("some-function");
