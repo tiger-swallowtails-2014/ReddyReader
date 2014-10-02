@@ -6,19 +6,46 @@
       </div>
       <div class="modal-body">
         <div class="row center">
-          <input id="difficulty_slider" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="3">
-        </div>
-        <div id="difficulty_images">
-          <%= image_tag "book1.jpeg" %>
-          <%= image_tag "book2.jpeg" %>
-          <%= image_tag "book3.jpeg" %>
-          <%= image_tag "book4.jpeg" %>
-          <%= image_tag "book5.jpeg" %>
-        </div>
-        <br>
-        <div id="diffbuttons" class="row center">
-          <button id="difficulty_done" class="btn btn-outline btn-lg" >Done</button>
-          <button id="difficulty_unknown" class="btn btn-outline btn-lg" >I don't know</button>
+          <div class="col-md-4">
+            <div id="difficulty_images">
+              <%= image_tag "book1.jpeg" %>
+              <%= image_tag "book2.jpeg" %>
+              <%= image_tag "book3.jpeg" %>
+              <%= image_tag "book4.jpeg" %>
+              <%= image_tag "book5.jpeg" %>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="row center">
+              <input id="difficulty_slider" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="3">
+            </div>
+            <div class="row center">
+              <div class="difficulty_content">
+                <h3>Young Adult</h3>
+                <p>Some content Some content Some content Some content Some content Some content Some content Some content Some content Some content Some content </p>
+              </div>
+              <div class="difficulty_content">
+                <h3>2</h3>
+                <p>more content more content more content more content more content more content more content more content more content more content more content more content more content</p>
+              </div>
+              <div class="difficulty_content">
+                <h3>3</h3>
+                <p>Some content Some content Some content Some content Some content Some content Some content Some content Some content Some content Some content </p>
+              </div>
+              <div class="difficulty_content">
+                <h3>4</h3>
+                <p>more content more content more content more content more content more content more content more content more content more content more content more content more content</p>
+              </div>
+              <div class="difficulty_content">
+                <h3>5</h3>
+                <p>Some content Some content Some content Some content Some content Some content Some content Some content Some content Some content Some content </p>
+              </div>
+            </div>
+            <div id="diffbuttons" class="row center">
+              <button id="difficulty_done" class="btn btn-outline btn-lg" >Done</button>
+              <button id="difficulty_unknown" class="btn btn-outline btn-lg" >I don't know</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
