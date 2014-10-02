@@ -15,6 +15,6 @@ database:
 
 dependencies:
   post:
-    - bundle exec rake assets:precompile assets:clean
+    - bundle exec rake assets:clean assets:precompile
   cache_directories:
     - "public/assets"
