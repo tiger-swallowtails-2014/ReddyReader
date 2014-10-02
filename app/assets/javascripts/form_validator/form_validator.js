@@ -5,11 +5,6 @@ ReddyReader.FormValidator = function(formSelector, validations) {
 ReddyReader.LoginFormValidator = function(loginFormSelector) {
   var validations = {
     message: 'This value is not valid',
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
     fields: {
       username: {
         message: 'The username is not valid',
