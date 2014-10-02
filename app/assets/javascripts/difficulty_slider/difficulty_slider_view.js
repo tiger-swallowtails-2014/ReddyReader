@@ -2,6 +2,7 @@ ReddyReader.DifficultySliderView = function(difficultyModalSelector) {
   this.$difficultyModal = $(difficultyModalSelector);
   this.$difficultySlider = this.$difficultyModal.find("#difficulty_slider");
   this.DEFAULT_DIFFICULTY = 3;
+  this.showDifficulty(this.DEFAULT_DIFFICULTY);
 }
 
 ReddyReader.DifficultySliderView.prototype = {
@@ -22,7 +23,22 @@ ReddyReader.DifficultySliderView.prototype = {
   },
 
   handleSliderMove: function(slideEvt) {
-    // TBC if required
+    this.showDifficulty(slideEvt.value);
+  },
+
+  showDifficulty: function(index) {
+    this.showDifficultyImage(index);
+    this.showDifficultyContent(index);
+  },
+
+  showDifficultyContent: function(index) {
+    $("#difficulty_modal .difficulty_content").hide();
+    $("#difficulty_modal .difficulty_content:nth-child(" + index + ")").show();
+  },
+
+  showDifficultyImage: function(index) {
+    $("#difficulty_images img").hide();
+    $("#difficulty_images img:nth-child(" + index + ")").show();
   },
 
   handleDoneClick: function() {
