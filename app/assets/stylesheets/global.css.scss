@@ -13,9 +13,9 @@ body {
 #transparent{
   height: 100px;
   width: 100%;
-  background-color: #000000;
+  background-color: transparentize(#000000, 0.5);
   position: fixed;
-  opacity: .5;
+ 
   margin-bottom: 3em;
 
   a,button{
