@@ -69,9 +69,7 @@ input {
   padding-bottom: 1em;
   
   .modal-header{
-    background-color: #000000;
-    opacity: .5;
-    z-index: -1;
+    background-color: transparentize(#000000, 0.5);
   }
 
   .bookinfo{
