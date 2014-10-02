@@ -52,6 +52,19 @@ class StaticPagesController < ApplicationController
     end
   end
   
+  def all_gr_books
+    if current_user && current_user.from_goodreads? && current_user.recent_wpm
+      all_books = HTTParty.get('https://www.goodreads.com/review/list?format=xml&v=2', :query => {:key => ENV["GR_API_KEY"], :id => current_user.uid, :sort => 'date_updated', :page => 1-3})["GoodreadsResponse"]["reviews"]["review"]
+      books = []
+      all_books.each do |review|
+        books << {title: review["book"]["title"], author: review["book"]["authors"]["author"]["name"], image_url: review["book"]["image_url"], page_count: review["book"]["num_pages"]}
+      end
+      render json: {books: books, time_per_page: current_user.reading_tests.last.time_per_page}.to_json
+    else
+      render json: {books: [], time_per_page: 0}.to_json
+    end
+  end
+  
   def skip_speed_test
     test = current_user.reading_tests.last
     session[:paragraph_id] = test.paragraph.id
