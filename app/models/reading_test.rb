@@ -35,9 +35,6 @@ class ReadingTest < ActiveRecord::Base
     wpm_data[:labels] << "Speed reader"
     wpm_data[:wpms] << 1000
 
-    wpm_data[:labels] << "Speed reading world record"
-    wpm_data[:wpms] << 4251
-
     wpm_data[:labels] << "Site Average"
     wpm_data[:wpms] << ReadingTest.get_average_wpm
 

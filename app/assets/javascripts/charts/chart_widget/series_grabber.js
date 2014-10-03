@@ -9,10 +9,6 @@ ReddyReader.SeriesGrabber.prototype = {
 
   series: [
     {
-      title: "The Wheel of Time",
-      wordCount: 4410036
-    },
-    {
       title: "A Song of Ice and Fire",
       wordCount: 1770000
     },
